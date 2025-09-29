@@ -9,10 +9,12 @@ namespace Dal.UoW.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        ICustomerRepository _customerRepository { get; }
-        IOrderRepository _orderRepository { get; }
-        IOrderDishRepository _orderDishRepository { get; }
-        IPaymentRepository _paymentRepository { get; }
+        public ICustomerRepository _customerRepository { get; }
+        public IOrderDishRepository _orderDishRepository { get; }
+        public IOrderRepository _orderRepository { get; }
+        public IPaymentRepository _paymentRepository { get; }
+
+
         void Commit();
         void Dispose();
     }
