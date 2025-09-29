@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6ncxugb6Ago=",
+  "dgSpecHash": "5zWAGf5xGvg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Dal.csproj",
+  "projectFilePath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Orders.Dal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vasyl\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",

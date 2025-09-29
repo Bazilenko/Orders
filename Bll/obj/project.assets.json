@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Bll.csproj",
-      "projectName": "Bll",
-      "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Bll.csproj",
+      "projectUniqueName": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Orders.Bll.csproj",
+      "projectName": "Orders.Bll",
+      "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Orders.Bll.csproj",
       "packagesPath": "C:\\Users\\Vasyl\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\obj\\",
       "projectStyle": "PackageReference",

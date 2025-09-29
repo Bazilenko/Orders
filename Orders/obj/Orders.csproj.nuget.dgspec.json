@@ -4,12 +4,12 @@
     "C:\\Users\\Vasyl\\source\\repos\\Orders\\Orders\\Orders.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Bll.csproj": {
+    "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Orders.Bll.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Bll.csproj",
-        "projectName": "Bll",
-        "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Bll.csproj",
+        "projectUniqueName": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Orders.Bll.csproj",
+        "projectName": "Orders.Bll",
+        "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Orders.Bll.csproj",
         "packagesPath": "C:\\Users\\Vasyl\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\obj\\",
         "projectStyle": "PackageReference",
@@ -69,12 +69,12 @@
         }
       }
     },
-    "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Dal.csproj": {
+    "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Orders.Dal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Dal.csproj",
-        "projectName": "Dal",
-        "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Dal.csproj",
+        "projectUniqueName": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Orders.Dal.csproj",
+        "projectName": "Orders.Dal",
+        "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Orders.Dal.csproj",
         "packagesPath": "C:\\Users\\Vasyl\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\obj\\",
         "projectStyle": "PackageReference",
@@ -172,11 +172,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Bll.csproj": {
-                "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Bll.csproj"
+              "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Orders.Bll.csproj": {
+                "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Orders.Bll.csproj"
               },
-              "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Dal.csproj": {
-                "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Dal.csproj"
+              "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Orders.Dal.csproj": {
+                "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Orders.Dal.csproj"
               }
             }
           }
