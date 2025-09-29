@@ -78,9 +78,33 @@ namespace Orders.Bll.Services
             return _mapper.Map<CustomerDto>(customer);
         }
 
-        public Task<CustomerDto> UpdateAsync(int id, CustomerUpdateDto customerUpdateDto, CancellationToken ct = default)
+        public async Task<CustomerDto> UpdateAsync(int id, CustomerUpdateDto dto, CancellationToken ct = default)
         {
-            throw new NotImplementedException();
+            var customer = await _unitOfWork._customerRepository.GetAsync(id);
+            if (customer == null)
+                throw new NotFoundException($"Customer with id {id} not found");
+
+            if(!string.IsNullOrEmpty(dto.Name) && dto.Name != customer.Name)
+            {
+                var existing = await _unitOfWork._customerRepository.GetByNameAsync(dto.Name, ct);
+                if (existing != null && existing.Id != id)
+                    throw new ValidationException($"Username {dto.Name} is already taken.");
+
+                customer.Name = dto.Name;
+            }
+
+            if (!string.IsNullOrWhiteSpace(dto.Email) && dto.Email != customer.Email)
+            {
+                var existing = await _unitOfWork._customerRepository.GetByEmailAsync(dto.Email, ct);
+                if (existing != null && existing.Id != id)
+                    throw new ValidationException($"Email {dto.Email} is already taken.");
+
+                customer.Email = dto.Email;
+            }
+            await _unitOfWork._customerRepository.ReplaceAsync(customer);
+             _unitOfWork.Commit();
+
+            return _mapper.Map<CustomerDto>(customer);
         }
     }
 }

@@ -57,8 +57,8 @@ namespace Dal.Repository
 
         public async Task<T> GetAsync(int id)
         {
-            var sql = $"SELECT * FROM {_tableName} WHERE Id = {id}";
-            var result = await _dbConnection.QuerySingleOrDefaultAsync<T>($"SELECT * FROM {_tableName} WHERE Id = {id}",
+            var sql = $"SELECT * FROM {_tableName} WHERE Id = @id";
+            var result = await _dbConnection.QuerySingleOrDefaultAsync<T>($"SELECT * FROM {_tableName} WHERE Id = @id",
                 param: new { Id = id },
                 transaction: _dbTransaction);
             if (result == null)

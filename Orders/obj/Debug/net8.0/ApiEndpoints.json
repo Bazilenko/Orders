@@ -47,6 +47,37 @@
   },
   {
     "ContainingType": "Orders.Controllers.CustomerController",
+    "Method": "Update",
+    "RelativePath": "api/Customer/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Orders.Dal.DTOs.Customer.CustomerUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Orders.Dal.DTOs.Customer.CustomerDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Orders.Controllers.CustomerController",
     "Method": "GetByEmail",
     "RelativePath": "api/Customer/by-email",
     "HttpMethod": "GET",

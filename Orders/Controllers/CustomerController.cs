@@ -7,7 +7,7 @@ namespace Orders.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    
+
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerService _customerService;
@@ -17,7 +17,7 @@ namespace Orders.Controllers
         }
 
         [HttpGet]
-     
+
         public async Task<ActionResult<IEnumerable<CustomerDto>>> GetAll(CancellationToken ct)
         {
             var customers = await _customerService.GetAllAsync(ct);
@@ -29,6 +29,13 @@ namespace Orders.Controllers
         {
             var created = await _customerService.CreateAsync(dto, ct);
             return CreatedAtAction(nameof(GetByEmail), new { email = created.Email }, created);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<CustomerDto>> Update(int id, [FromBody] CustomerUpdateDto dto, CancellationToken ct)
+        {
+            var updated = await _customerService.UpdateAsync(id, dto, ct);
+            return Ok(updated);
         }
 
         [HttpGet("by-email")]
