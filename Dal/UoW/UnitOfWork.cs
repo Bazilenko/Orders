@@ -19,11 +19,12 @@ namespace Dal.UoW
 
         readonly IDbTransaction _dbTransaction;
 
-        public UnitOfWork(CustomerRepository customerRepository, IOrderDishRepository orderDishRepository, IOrderRepository orderRepository, IPaymentRepository paymentRepository) {
+        public UnitOfWork(ICustomerRepository customerRepository, IOrderDishRepository orderDishRepository, IOrderRepository orderRepository, IPaymentRepository paymentRepository, IDbTransaction dbTransaction) {
             _customerRepository = customerRepository;
             _orderRepository = orderRepository;
             _paymentRepository = paymentRepository;
             _orderDishRepository = orderDishRepository;
+            _dbTransaction = dbTransaction;
         }
 
         public void Commit()

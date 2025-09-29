@@ -12,7 +12,7 @@ namespace Dal.Repository
 {
     public class PaymentRepository : GenericRepository<Payment> ,IPaymentRepository
     {
-        public PaymentRepository(SqlConnection sqlConnection, IDbTransaction dbTransaction, string tableName) : base(sqlConnection, dbTransaction, "Payments")
+        public PaymentRepository(SqlConnection sqlConnection, IDbTransaction dbTransaction) : base(sqlConnection, dbTransaction, "Payments")
         {
         }
 

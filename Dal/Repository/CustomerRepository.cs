@@ -18,7 +18,7 @@ namespace Dal.Repository
 
         public async Task<Customer?> GetByEmailAsync(string email, CancellationToken ct)
         {
-            string query = "SELECT * FROM customer WHERE Email = @email";
+            string query = "SELECT * FROM Customers WHERE Email = @email";
             using (SqlCommand cmd = new SqlCommand(query, _dbConnection, (SqlTransaction)_dbTransaction))
             {
                 {

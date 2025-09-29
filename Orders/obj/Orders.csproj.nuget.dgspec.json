@@ -31,7 +31,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Orders.Dal.csproj": {
+                "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Orders.Dal.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -49,6 +53,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -115,6 +125,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
             "Dapper": {
               "target": "Package",
               "version": "[2.1.66, )"
@@ -174,9 +188,6 @@
             "projectReferences": {
               "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Orders.Bll.csproj": {
                 "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Orders.Bll.csproj"
-              },
-              "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Orders.Dal.csproj": {
-                "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Orders.Dal.csproj"
               }
             }
           }
@@ -197,6 +208,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"

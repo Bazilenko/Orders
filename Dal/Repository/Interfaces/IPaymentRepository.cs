@@ -7,7 +7,7 @@ using Dal.Entities;
 
 namespace Dal.Repository.Interfaces
 {
-    public interface IPaymentRepository
+    public interface IPaymentRepository : IGenericRepository<Payment>
     {
         Task<Payment> GetByOrderIdAsync(int orderId);
     }
