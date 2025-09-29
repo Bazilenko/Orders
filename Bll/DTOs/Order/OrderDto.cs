@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dal.Entities
+namespace Dal.DTOs.Order
 {
-    public class Order
+    public class OrderDto
     {
         public int Id { get; set; }
         public int CustomerId { get; set; }

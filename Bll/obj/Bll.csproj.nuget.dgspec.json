@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Dal.csproj": {}
+    "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Bll.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Dal.csproj": {
+    "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Bll.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Dal.csproj",
-        "projectName": "Dal",
-        "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Dal.csproj",
+        "projectUniqueName": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Bll.csproj",
+        "projectName": "Bll",
+        "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Bll.csproj",
         "packagesPath": "C:\\Users\\Vasyl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\obj\\",
+        "outputPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,16 +49,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Dapper": {
-              "target": "Package",
-              "version": "[2.1.66, )"
-            },
-            "Microsoft.Data.SqlClient": {
-              "target": "Package",
-              "version": "[6.1.1, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
