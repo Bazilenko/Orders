@@ -4,17 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dal.Entities
+namespace Orders.Bll.DTOs.Order
 {
-    public class Order
+    public class OrderCreateDto
     {
-        public int Id { get; set; }
         public int CustomerId { get; set; }
         public int RestaurantId { get; set; }
-        public DateTime OrderDate { get; set; } = DateTime.UtcNow;
-        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
         public string Status { get; set; }
         public decimal TotalAmount { get; set; }
-
     }
 }

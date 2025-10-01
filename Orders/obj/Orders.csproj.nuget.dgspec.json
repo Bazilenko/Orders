@@ -188,6 +188,9 @@
             "projectReferences": {
               "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Orders.Bll.csproj": {
                 "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Bll\\Orders.Bll.csproj"
+              },
+              "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Orders.Dal.csproj": {
+                "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Orders.Dal.csproj"
               }
             }
           }

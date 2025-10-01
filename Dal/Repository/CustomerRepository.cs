@@ -21,7 +21,6 @@ namespace Dal.Repository
             string query = "SELECT * FROM Customers WHERE Email = @email";
             using (SqlCommand cmd = new SqlCommand(query, _dbConnection, (SqlTransaction)_dbTransaction))
             {
-                {
                     cmd.Parameters.AddWithValue("@email", email);
 
                     using (SqlDataReader reader = await cmd.ExecuteReaderAsync(ct))
@@ -37,8 +36,7 @@ namespace Dal.Repository
                             };
                         }
 
-                    }
-                }
+                    }  
             }
             return null;
         }
