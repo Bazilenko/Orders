@@ -36,7 +36,7 @@ namespace Orders.Bll.Services
         {
             var result = await _untiOfWork._orderRepository.GetIncomeByDate(fromDate, toDate);
             if (result == 0)
-                throw new NotFoundException($"There is not income for this dates {fromDate} - {toDate}");
+                throw new NotFoundException($"There is not income for this dates {fromDate.Date} - {toDate.Date}");
             return result;
         }
 
