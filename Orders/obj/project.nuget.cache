@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "N6dxcjF28s8=",
+  "dgSpecHash": "xfCsdRAgaEM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Orders\\Orders.csproj",
+  "projectFilePath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Orders\\Orders.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vasyl\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

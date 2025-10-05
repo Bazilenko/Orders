@@ -49,5 +49,13 @@ namespace Orders.Bll.Services
             _untiOfWork.Commit();
             return _mapper.Map<OrderDto>(entity);
         }
+
+        public async Task<OrderReceiptDto> GetOrderWithDishesAsync(int orderId)
+        {
+            var order = await _untiOfWork._orderRepository.GetWithItemsByIdAsync(orderId);
+            if (order == null)
+                throw new NotFoundException($"There is no Order with Id: {orderId}");
+            return _mapper.Map<OrderReceiptDto>(order);
+        }
     }
 }

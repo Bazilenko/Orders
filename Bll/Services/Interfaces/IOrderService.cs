@@ -13,6 +13,7 @@ namespace Orders.Bll.Services.Interfaces
         Task<IEnumerable<OrderDto?>> GetAllAsync();
         Task<decimal?> GetIncomeByDateAsync(DateTime fromDate, DateTime toDate);
         Task<OrderDto> CreateAsync(OrderCreateDto dto);
+        Task<OrderReceiptDto> GetOrderWithDishesAsync(int orderId);
 
     }
 }

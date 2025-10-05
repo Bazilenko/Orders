@@ -15,6 +15,8 @@ namespace Dal.Entities
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
         public string Status { get; set; }
         public decimal TotalAmount { get; set; }
+        public virtual ICollection<OrderDish?> Dishes { get; set; }
+        
 
     }
 }

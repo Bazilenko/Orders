@@ -10,7 +10,7 @@ namespace Dal.Repository.Interfaces
     public interface IOrderRepository : IGenericRepository<Order>
     {
         Task<IEnumerable<Order>> GetByCustomerIdAsync(int customerId);
-        //Task<Order?> GetWithItemsByIdAsync(int orderId);
+        Task<Order?> GetWithItemsByIdAsync(int orderId);
         Task<decimal> GetIncomeByDate(DateTime fromDate, DateTime toDate);
 
     }

@@ -29,12 +29,22 @@ namespace Orders.Controllers
             return Ok(income);
         }
 
+        [HttpGet("Get-receipt")]
+        public async Task<ActionResult<OrderReceiptDto>> GetOrderReceipt(int orderId)
+        {
+            var order = await _orderService.GetOrderWithDishesAsync(orderId);
+            return Ok(order);
+
+        }
+
         [HttpPost]
         public async Task<ActionResult<OrderDto>> Create([FromBody] OrderCreateDto dto)
         {
             var created = await _orderService.CreateAsync(dto);
             return Ok(created);
         }
+
+
         
     }
 }

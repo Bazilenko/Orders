@@ -16,6 +16,8 @@ namespace Orders.Bll.Mapper.Profiles
             CreateMap<Order, OrderDto>();
             CreateMap<OrderCreateDto, Order>();
             CreateMap<OrderUpdateDto, Order>();
+            CreateMap<OrderDto, OrderReceiptDto>();
+            CreateMap<Order, OrderReceiptDto>();
         }
 
 

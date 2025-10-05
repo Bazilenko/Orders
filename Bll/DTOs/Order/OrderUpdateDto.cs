@@ -9,5 +9,6 @@ namespace Dal.DTOs.Order
     public class OrderUpdateDto
     {
         public string Status { get; set; }
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
     }
 }
