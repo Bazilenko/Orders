@@ -1,0 +1,6 @@
+C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Dal\obj\Debug\net8.0\Catalog.Dal.csproj.AssemblyReference.cache
+C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Dal\obj\Debug\net8.0\Catalog.Dal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Dal\obj\Debug\net8.0\Catalog.Dal.AssemblyInfoInputs.cache
+C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Dal\obj\Debug\net8.0\Catalog.Dal.AssemblyInfo.cs
+C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Dal\obj\Debug\net8.0\Catalog.Dal.csproj.CoreCompileInputs.cache
+C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Dal\obj\Debug\net8.0\Catalog.Dal.sourcelink.json

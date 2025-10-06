@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Catalog.Dal.Context
 {
-    internal class MyContext
+    public class MyContext : DbContext
     {
     }
 }

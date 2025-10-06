@@ -9,24 +9,23 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Catalog.Dal.Configurations
 {
-    public class ContactConfiguration : IEntityTypeConfiguration<Contact>
+    public class DishOptionConfiguration : IEntityTypeConfiguration<DishOption>
     {
-
-        public void Configure(EntityTypeBuilder<Contact> builder)
+        public void Configure(EntityTypeBuilder<DishOption> builder)
         {
-            builder.HasKey(c => c.Id);
+            builder.HasKey(d => d.Id);
 
-            builder.Property(c => c.Type)
+            builder.Property(d => d.Name)
                 .IsRequired()
                 .HasMaxLength(50);
 
-            builder.Property(c => c.Value)
+            builder.Property(d => d.ModifierPrice)
                 .IsRequired()
-                .HasMaxLength(50);
+                .HasPrecision(10,2);
 
-            builder.HasOne(c => c.Restaurant)
-                .WithMany(r => r.Contacts)
-                .HasForeignKey(c => c.RestaurantId)
+            builder.HasOne(d => d.Dish)
+                .WithMany(d => d.DishOptions)
+                .HasForeignKey(d => d.DishId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }
