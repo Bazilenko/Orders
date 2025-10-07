@@ -21,7 +21,7 @@ namespace Catalog.Dal.Configurations
 
             builder.Property(r => r.Rating)
                 .IsRequired()
-                .HasPrecision(1, 2);
+                .HasPrecision(10, 2);
 
             builder.Property(r => r.Description)
                 .IsRequired()

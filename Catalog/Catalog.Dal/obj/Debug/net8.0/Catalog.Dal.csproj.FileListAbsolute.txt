@@ -4,3 +4,12 @@ C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Dal\obj\Debug\net8.0\Catalog.
 C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Dal\obj\Debug\net8.0\Catalog.Dal.AssemblyInfo.cs
 C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Dal\obj\Debug\net8.0\Catalog.Dal.csproj.CoreCompileInputs.cache
 C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Dal\obj\Debug\net8.0\Catalog.Dal.sourcelink.json
+C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Dal\bin\Debug\net8.0\Catalog.Dal.deps.json
+C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Dal\bin\Debug\net8.0\Catalog.Dal.dll
+C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Dal\bin\Debug\net8.0\Catalog.Dal.pdb
+C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Dal\obj\Debug\net8.0\Catalog.Dal.dll
+C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Dal\obj\Debug\net8.0\refint\Catalog.Dal.dll
+C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Dal\obj\Debug\net8.0\Catalog.Dal.pdb
+C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Dal\obj\Debug\net8.0\ref\Catalog.Dal.dll
+C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Dal\bin\Debug\net8.0\Catalog.Dal.runtimeconfig.json
+C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Dal\obj\Debug\net8.0\Catalog.Dal.genruntimeconfig.cache

@@ -16,6 +16,6 @@ namespace Catalog.Dal.Entities
         public string ImageUrl { get; set; }
         public Category Category { get; set; } = null!;
         public Restaurant Restaturant { get; set; } = null!;
-        public DishOption DishOptions { get; set; } = null!;
+        public ICollection<DishOption?> DishOptions { get; set; } = null!;
     }
 }

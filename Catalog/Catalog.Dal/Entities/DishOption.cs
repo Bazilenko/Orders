@@ -12,6 +12,6 @@ namespace Catalog.Dal.Entities
         public decimal ModifierPrice { get; set; }
         public int DishId { get; set; }
 
-        public ICollection<Dish> Dishes { get; set; } = null!;
+        public Dish Dish { get; set; } = null!;
     }
 }
