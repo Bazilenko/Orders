@@ -13,8 +13,8 @@ namespace Catalog.Dal.Entities
         public string ImageUrl { get; set; }
         public string Description { get; set; }
 
-        public ICollection<Address> Addresses { get; set; }
-        public ICollection<Contact> Contacts { get; set; }
+        public ICollection<Address> Addresses { get; set; } = new List<Address>();
+        public ICollection<Contact> Contacts { get; set; } = new List<Contact>();
         public ICollection<Dish> Dishes { get; set; }
     }
 }

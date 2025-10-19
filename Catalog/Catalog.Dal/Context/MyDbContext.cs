@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Catalog.Dal.Context
 {
-    public class MyContext : DbContext
+    public class MyDbContext : DbContext
     {
         public DbSet<Category> Categories { get; set; } = null!;
         public DbSet<Restaurant> Restaurants { get; set; } = null!;
@@ -19,7 +19,7 @@ namespace Catalog.Dal.Context
         public DbSet<DishOption> DishesOptions { get; set; } = null!;
         public DbSet<Contact> Contacts { get; set; } = null!;
 
-        public MyContext(DbContextOptions<MyContext> options) : base(options) { }
+        public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -11,15 +11,15 @@ using Microsoft.Extensions.Configuration;
 
 namespace Catalog.Dal.Context
 {
-    public class MyContexFactory : IDesignTimeDbContextFactory<MyContext>
+    public class MyDbContextFactory : IDesignTimeDbContextFactory<MyDbContext>
     {
-        public MyContext CreateDbContext(string[] args)
+        public MyDbContext CreateDbContext(string[] args)
         {
 
-            var optionsBuilder = new DbContextOptionsBuilder<MyContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<MyDbContext>();
             optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=CatalogDB;Trusted_Connection=True;");
 
-            return new MyContext(optionsBuilder.Options);
+            return new MyDbContext(optionsBuilder.Options);
 
         }
     }

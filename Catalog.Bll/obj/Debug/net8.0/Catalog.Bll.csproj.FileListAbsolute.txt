@@ -1,0 +1,16 @@
+C:\Users\Vasyl\source\repos\Orders\Catalog.Bll\bin\Debug\net8.0\Catalog.Bll.deps.json
+C:\Users\Vasyl\source\repos\Orders\Catalog.Bll\bin\Debug\net8.0\Catalog.Bll.dll
+C:\Users\Vasyl\source\repos\Orders\Catalog.Bll\bin\Debug\net8.0\Catalog.Bll.pdb
+C:\Users\Vasyl\source\repos\Orders\Catalog.Bll\obj\Debug\net8.0\Catalog.Bll.csproj.AssemblyReference.cache
+C:\Users\Vasyl\source\repos\Orders\Catalog.Bll\obj\Debug\net8.0\Catalog.Bll.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vasyl\source\repos\Orders\Catalog.Bll\obj\Debug\net8.0\Catalog.Bll.AssemblyInfoInputs.cache
+C:\Users\Vasyl\source\repos\Orders\Catalog.Bll\obj\Debug\net8.0\Catalog.Bll.AssemblyInfo.cs
+C:\Users\Vasyl\source\repos\Orders\Catalog.Bll\obj\Debug\net8.0\Catalog.Bll.csproj.CoreCompileInputs.cache
+C:\Users\Vasyl\source\repos\Orders\Catalog.Bll\obj\Debug\net8.0\Catalog.Bll.sourcelink.json
+C:\Users\Vasyl\source\repos\Orders\Catalog.Bll\obj\Debug\net8.0\Catalog.Bll.dll
+C:\Users\Vasyl\source\repos\Orders\Catalog.Bll\obj\Debug\net8.0\refint\Catalog.Bll.dll
+C:\Users\Vasyl\source\repos\Orders\Catalog.Bll\obj\Debug\net8.0\Catalog.Bll.pdb
+C:\Users\Vasyl\source\repos\Orders\Catalog.Bll\obj\Debug\net8.0\ref\Catalog.Bll.dll
+C:\Users\Vasyl\source\repos\Orders\Catalog.Bll\bin\Debug\net8.0\Catalog.Dal.dll
+C:\Users\Vasyl\source\repos\Orders\Catalog.Bll\bin\Debug\net8.0\Catalog.Dal.pdb
+C:\Users\Vasyl\source\repos\Orders\Catalog.Bll\obj\Debug\net8.0\Catalog..EA96E6D3.Up2Date

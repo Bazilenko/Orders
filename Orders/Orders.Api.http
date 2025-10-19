@@ -1,0 +1,5 @@
+﻿@Orders.Api_HostAddress = http://localhost:5102
+
+GET {{Orders.Api_HostAddress}}/api/customer
+
+###

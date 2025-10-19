@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Catalog.Dal.Migrations
 {
-    [DbContext(typeof(MyContext))]
+    [DbContext(typeof(MyDbContext))]
     [Migration("20251007154213_InitialCreate")]
     partial class InitialCreate
     {

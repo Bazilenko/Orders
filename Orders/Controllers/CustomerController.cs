@@ -35,7 +35,7 @@ namespace Orders.Controllers
         public async Task<ActionResult<CustomerDto>> Update(int id, [FromBody] CustomerUpdateDto dto, CancellationToken ct)
         {
             var updated = await _customerService.UpdateAsync(id, dto, ct);
-            return Ok(updated);
+            return NoContent();
         }
 
         [HttpGet("by-email")]
