@@ -1,0 +1,16 @@
+C:\Users\Vasyl\source\repos\Orders\Delivery.Application\obj\Debug\net8.0\Delivery.Application.csproj.AssemblyReference.cache
+C:\Users\Vasyl\source\repos\Orders\Delivery.Application\obj\Debug\net8.0\Delivery.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vasyl\source\repos\Orders\Delivery.Application\obj\Debug\net8.0\Delivery.Application.AssemblyInfoInputs.cache
+C:\Users\Vasyl\source\repos\Orders\Delivery.Application\obj\Debug\net8.0\Delivery.Application.AssemblyInfo.cs
+C:\Users\Vasyl\source\repos\Orders\Delivery.Application\obj\Debug\net8.0\Delivery.Application.csproj.CoreCompileInputs.cache
+C:\Users\Vasyl\source\repos\Orders\Delivery.Application\obj\Debug\net8.0\Delivery.Application.sourcelink.json
+C:\Users\Vasyl\source\repos\Orders\Delivery.Application\bin\Debug\net8.0\Delivery.Application.deps.json
+C:\Users\Vasyl\source\repos\Orders\Delivery.Application\bin\Debug\net8.0\Delivery.Application.dll
+C:\Users\Vasyl\source\repos\Orders\Delivery.Application\bin\Debug\net8.0\Delivery.Application.pdb
+C:\Users\Vasyl\source\repos\Orders\Delivery.Application\bin\Debug\net8.0\Delivery.Domain.dll
+C:\Users\Vasyl\source\repos\Orders\Delivery.Application\bin\Debug\net8.0\Delivery.Domain.pdb
+C:\Users\Vasyl\source\repos\Orders\Delivery.Application\obj\Debug\net8.0\Delivery.FAF42E8E.Up2Date
+C:\Users\Vasyl\source\repos\Orders\Delivery.Application\obj\Debug\net8.0\Delivery.Application.dll
+C:\Users\Vasyl\source\repos\Orders\Delivery.Application\obj\Debug\net8.0\refint\Delivery.Application.dll
+C:\Users\Vasyl\source\repos\Orders\Delivery.Application\obj\Debug\net8.0\Delivery.Application.pdb
+C:\Users\Vasyl\source\repos\Orders\Delivery.Application\obj\Debug\net8.0\ref\Delivery.Application.dll

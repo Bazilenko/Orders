@@ -1,0 +1,16 @@
+C:\Users\Vasyl\source\repos\Orders\Delivery.Infrastructure\bin\Debug\net8.0\Delivery.Infrastructure.deps.json
+C:\Users\Vasyl\source\repos\Orders\Delivery.Infrastructure\bin\Debug\net8.0\Delivery.Infrastructure.dll
+C:\Users\Vasyl\source\repos\Orders\Delivery.Infrastructure\bin\Debug\net8.0\Delivery.Infrastructure.pdb
+C:\Users\Vasyl\source\repos\Orders\Delivery.Infrastructure\bin\Debug\net8.0\Delivery.Domain.dll
+C:\Users\Vasyl\source\repos\Orders\Delivery.Infrastructure\bin\Debug\net8.0\Delivery.Domain.pdb
+C:\Users\Vasyl\source\repos\Orders\Delivery.Infrastructure\obj\Debug\net8.0\Delivery.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Vasyl\source\repos\Orders\Delivery.Infrastructure\obj\Debug\net8.0\Delivery.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vasyl\source\repos\Orders\Delivery.Infrastructure\obj\Debug\net8.0\Delivery.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Vasyl\source\repos\Orders\Delivery.Infrastructure\obj\Debug\net8.0\Delivery.Infrastructure.AssemblyInfo.cs
+C:\Users\Vasyl\source\repos\Orders\Delivery.Infrastructure\obj\Debug\net8.0\Delivery.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Vasyl\source\repos\Orders\Delivery.Infrastructure\obj\Debug\net8.0\Delivery.Infrastructure.sourcelink.json
+C:\Users\Vasyl\source\repos\Orders\Delivery.Infrastructure\obj\Debug\net8.0\Delivery.9020C886.Up2Date
+C:\Users\Vasyl\source\repos\Orders\Delivery.Infrastructure\obj\Debug\net8.0\Delivery.Infrastructure.dll
+C:\Users\Vasyl\source\repos\Orders\Delivery.Infrastructure\obj\Debug\net8.0\refint\Delivery.Infrastructure.dll
+C:\Users\Vasyl\source\repos\Orders\Delivery.Infrastructure\obj\Debug\net8.0\Delivery.Infrastructure.pdb
+C:\Users\Vasyl\source\repos\Orders\Delivery.Infrastructure\obj\Debug\net8.0\ref\Delivery.Infrastructure.dll

@@ -1,0 +1,13 @@
+C:\Users\Vasyl\source\repos\Orders\Delivery.Domain\bin\Debug\net8.0\Delivery.Domain.deps.json
+C:\Users\Vasyl\source\repos\Orders\Delivery.Domain\bin\Debug\net8.0\Delivery.Domain.dll
+C:\Users\Vasyl\source\repos\Orders\Delivery.Domain\bin\Debug\net8.0\Delivery.Domain.pdb
+C:\Users\Vasyl\source\repos\Orders\Delivery.Domain\obj\Debug\net8.0\Delivery.Domain.csproj.AssemblyReference.cache
+C:\Users\Vasyl\source\repos\Orders\Delivery.Domain\obj\Debug\net8.0\Delivery.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vasyl\source\repos\Orders\Delivery.Domain\obj\Debug\net8.0\Delivery.Domain.AssemblyInfoInputs.cache
+C:\Users\Vasyl\source\repos\Orders\Delivery.Domain\obj\Debug\net8.0\Delivery.Domain.AssemblyInfo.cs
+C:\Users\Vasyl\source\repos\Orders\Delivery.Domain\obj\Debug\net8.0\Delivery.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Vasyl\source\repos\Orders\Delivery.Domain\obj\Debug\net8.0\Delivery.Domain.sourcelink.json
+C:\Users\Vasyl\source\repos\Orders\Delivery.Domain\obj\Debug\net8.0\Delivery.Domain.dll
+C:\Users\Vasyl\source\repos\Orders\Delivery.Domain\obj\Debug\net8.0\refint\Delivery.Domain.dll
+C:\Users\Vasyl\source\repos\Orders\Delivery.Domain\obj\Debug\net8.0\Delivery.Domain.pdb
+C:\Users\Vasyl\source\repos\Orders\Delivery.Domain\obj\Debug\net8.0\ref\Delivery.Domain.dll
