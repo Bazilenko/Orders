@@ -40,6 +40,15 @@ namespace Orders.Bll.Services
             return _mapper.Map<PaymentDto>(payment);
         }
 
+        public async Task<PaymentDto?> GetByOrderId(int orderId, CancellationToken ct = default)
+        {
+            
+            var payment = await _unitOfWork._paymentRepository.GetByOrderIdAsync(orderId);
+            if (payment == null)
+                throw new NotFoundException($"Payment with order id {orderId} not found! ");
+            return _mapper.Map<PaymentDto>(payment);
+        } 
+
         public async Task<IEnumerable<PaymentDto>> GetAllAsync(CancellationToken ct = default)
         {
             var payments = await _unitOfWork._paymentRepository.GetAllAsync();

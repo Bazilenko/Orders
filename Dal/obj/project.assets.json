@@ -68,6 +68,22 @@
           }
         }
       },
+      "Dommel/3.5.0": {
+        "type": "package",
+        "dependencies": {
+          "Dapper": "2.1.66"
+        },
+        "compile": {
+          "lib/net8.0/Dommel.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Dommel.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/8.0.0": {
         "type": "package",
         "compile": {
@@ -723,6 +739,26 @@
         "lib/netstandard2.0/Dapper.dll",
         "lib/netstandard2.0/Dapper.xml",
         "readme.md"
+      ]
+    },
+    "Dommel/3.5.0": {
+      "sha512": "xnmniO9L4PEmkkwZOdAZ8fkjuwtOITVDZKiSgwUJj4LqPJArHchN17sTi2eE3TiwwHu3gywCZ0gWWpZVIEBsoQ==",
+      "type": "package",
+      "path": "dommel/3.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "dommel.3.5.0.nupkg.sha512",
+        "dommel.nuspec",
+        "lib/net10.0/Dommel.dll",
+        "lib/net10.0/Dommel.xml",
+        "lib/net8.0/Dommel.dll",
+        "lib/net8.0/Dommel.xml",
+        "lib/net9.0/Dommel.dll",
+        "lib/net9.0/Dommel.xml",
+        "lib/netstandard2.0/Dommel.dll",
+        "lib/netstandard2.0/Dommel.xml"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/8.0.0": {
@@ -1737,6 +1773,7 @@
     "net8.0": [
       "AutoMapper >= 12.0.0",
       "Dapper >= 2.1.66",
+      "Dommel >= 3.5.0",
       "Microsoft.Data.SqlClient >= 6.1.1"
     ]
   },
@@ -1797,6 +1834,10 @@
           "Dapper": {
             "target": "Package",
             "version": "[2.1.66, )"
+          },
+          "Dommel": {
+            "target": "Package",
+            "version": "[3.5.0, )"
           },
           "Microsoft.Data.SqlClient": {
             "target": "Package",

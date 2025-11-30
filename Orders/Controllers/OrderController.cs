@@ -1,6 +1,7 @@
 ﻿using Dal.DTOs.Order;
 using Microsoft.AspNetCore.Mvc;
 using Orders.Bll.DTOs.Order;
+using Orders.Bll.DTOs.OrderDish;
 using Orders.Bll.Services;
 using Orders.Bll.Services.Interfaces;
 
@@ -42,6 +43,14 @@ namespace Orders.Controllers
         {
             var created = await _orderService.CreateAsync(dto);
             return Ok(created);
+        }
+
+        [HttpPut("addDish")]
+        public async Task<ActionResult<OrderDishDto>> AddDishToOrder([FromBody] OrderDishCreateDto dto, CancellationToken ct)
+        {
+            var entity =  await _orderService.AddDishToOrder(dto);
+
+            return Ok(entity);
         }
 
 

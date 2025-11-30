@@ -25,14 +25,14 @@ namespace Delivery.Api.Controllers
 
         }
 
-        [HttpPut("/assign-window")]
+        [HttpPut("assign-window")]
         public async Task<IActionResult> AssignWindowToDelivery([FromBody] AssignDeliveryWindowCommand cmd, CancellationToken ct)
         {
             var res = await _mediator.Send(cmd, cancellationToken: ct);
             return Ok(res);
         }
 
-        [HttpGet("/get-all")]
+        [HttpGet("get-all")]
         public async Task<IActionResult> GetAllDeliveries(CancellationToken ct)
         {
             GetAllDeliveriesQuery cmd = new GetAllDeliveriesQuery();

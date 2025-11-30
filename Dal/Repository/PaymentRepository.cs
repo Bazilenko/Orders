@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dal.Entities;
 using Dal.Repository.Interfaces;
+using Dapper;
 using Microsoft.Data.SqlClient;
 
 namespace Dal.Repository
@@ -19,6 +20,9 @@ namespace Dal.Repository
         public async Task<Payment?> GetByOrderIdAsync(int orderId)
         {
             string query = "SELECT * FROM Payments WHERE OrderId = @orderId";
+            var payment = await _dbConnection.QueryAsync<Payment?>(query);
+            /*
+            
             using (SqlCommand cmd = new SqlCommand(query, _dbConnection, (SqlTransaction)_dbTransaction))
             {
                 {
@@ -41,7 +45,9 @@ namespace Dal.Repository
                     }
                 }
             }
+            */
             return null;
+            
         }
 
         public async Task<Payment?> GetByPaymentMethodAsync(string paymentMethod)

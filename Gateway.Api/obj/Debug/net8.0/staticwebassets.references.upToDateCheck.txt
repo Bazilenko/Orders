@@ -1,0 +1,3 @@
+C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Api\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Vasyl\source\repos\Orders\Delivery.Api\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Vasyl\source\repos\Orders\Orders\obj\Debug\net8.0\staticwebassets.build.json

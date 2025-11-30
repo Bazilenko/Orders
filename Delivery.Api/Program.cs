@@ -15,8 +15,29 @@ using Delivery.Infrastructure.Repository;
 using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var aspConn = builder.Configuration.GetConnectionString("DeliveryDb") ?? 
+    builder.Configuration.GetConnectionString("mongodb");
+
+builder.AddServiceDefaults();
+
 builder.Services.Configure<MongoDbSettings>(
         builder.Configuration.GetSection("MongoDbSettings"));
+if (!string.IsNullOrEmpty(aspConn))
+{
+    builder.Services.Configure<MongoDbSettings>(options =>
+    {
+        options.ConnectionString = aspConn;
+        options.DatabaseName = "DeliveryDb";
+        options.MaxConnectionPoolSize = 100;
+        options.MinConnectionPoolSize = 5;
+        options.ConnectTimeoutSeconds = 10;
+        options.SocketTimeoutSeconds = 10;
+    });
+}
+
+
+
 
 // Add services to the container.
 
@@ -54,6 +75,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.MapDefaultEndpoints();
 app.UseMiddleware<GlobalExceptionMiddleware>();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

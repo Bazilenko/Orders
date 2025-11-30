@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1WTR9w5gvwA=",
+  "dgSpecHash": "wpk3HoaOENQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Orders.Dal.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\Vasyl\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
+    "C:\\Users\\Vasyl\\.nuget\\packages\\dommel\\3.5.0\\dommel.3.5.0.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\microsoft.bcl.cryptography\\8.0.0\\microsoft.bcl.cryptography.8.0.0.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

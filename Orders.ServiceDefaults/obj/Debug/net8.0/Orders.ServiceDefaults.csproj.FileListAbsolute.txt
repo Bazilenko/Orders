@@ -1,0 +1,13 @@
+C:\Users\Vasyl\source\repos\Orders\Orders.ServiceDefaults\bin\Debug\net8.0\Orders.ServiceDefaults.deps.json
+C:\Users\Vasyl\source\repos\Orders\Orders.ServiceDefaults\bin\Debug\net8.0\Orders.ServiceDefaults.dll
+C:\Users\Vasyl\source\repos\Orders\Orders.ServiceDefaults\bin\Debug\net8.0\Orders.ServiceDefaults.pdb
+C:\Users\Vasyl\source\repos\Orders\Orders.ServiceDefaults\obj\Debug\net8.0\Orders.ServiceDefaults.csproj.AssemblyReference.cache
+C:\Users\Vasyl\source\repos\Orders\Orders.ServiceDefaults\obj\Debug\net8.0\Orders.ServiceDefaults.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vasyl\source\repos\Orders\Orders.ServiceDefaults\obj\Debug\net8.0\Orders.ServiceDefaults.AssemblyInfoInputs.cache
+C:\Users\Vasyl\source\repos\Orders\Orders.ServiceDefaults\obj\Debug\net8.0\Orders.ServiceDefaults.AssemblyInfo.cs
+C:\Users\Vasyl\source\repos\Orders\Orders.ServiceDefaults\obj\Debug\net8.0\Orders.ServiceDefaults.csproj.CoreCompileInputs.cache
+C:\Users\Vasyl\source\repos\Orders\Orders.ServiceDefaults\obj\Debug\net8.0\Orders.ServiceDefaults.sourcelink.json
+C:\Users\Vasyl\source\repos\Orders\Orders.ServiceDefaults\obj\Debug\net8.0\Orders.ServiceDefaults.dll
+C:\Users\Vasyl\source\repos\Orders\Orders.ServiceDefaults\obj\Debug\net8.0\refint\Orders.ServiceDefaults.dll
+C:\Users\Vasyl\source\repos\Orders\Orders.ServiceDefaults\obj\Debug\net8.0\Orders.ServiceDefaults.pdb
+C:\Users\Vasyl\source\repos\Orders\Orders.ServiceDefaults\obj\Debug\net8.0\ref\Orders.ServiceDefaults.dll

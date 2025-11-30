@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dal.DTOs.Order;
 using Orders.Bll.DTOs.Order;
+using Orders.Bll.DTOs.OrderDish;
 
 namespace Orders.Bll.Services.Interfaces
 {
@@ -14,6 +15,7 @@ namespace Orders.Bll.Services.Interfaces
         Task<decimal?> GetIncomeByDateAsync(DateTime fromDate, DateTime toDate);
         Task<OrderDto> CreateAsync(OrderCreateDto dto);
         Task<OrderReceiptDto> GetOrderWithDishesAsync(int orderId);
+        Task<OrderDishDto> AddDishToOrder(OrderDishCreateDto dto);
 
     }
 }

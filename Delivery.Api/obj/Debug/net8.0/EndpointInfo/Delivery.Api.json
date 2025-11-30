@@ -198,7 +198,7 @@
         }
       }
     },
-    "/assign-window": {
+    "/api/Deliveries/Delivery/assign-window": {
       "put": {
         "tags": [
           "Delivery"
@@ -229,7 +229,7 @@
         }
       }
     },
-    "/get-all": {
+    "/api/Deliveries/Delivery/get-all": {
       "get": {
         "tags": [
           "Delivery"

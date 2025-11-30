@@ -1,3 +1,4 @@
+using System;
 using System.Data;
 using AutoMapper;
 using Dal.Repository;
@@ -13,6 +14,9 @@ using Orders.Dal.Repository;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.AddServiceDefaults();
+
 
 // Add services to the container.
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
@@ -30,7 +34,10 @@ builder.Services.AddAutoMapper(typeof(PaymentProfile));
 
 builder.Services.AddControllers();
 
-builder.Services.AddScoped((s) => new SqlConnection(builder.Configuration.GetConnectionString("MSSQLConnection")));
+builder.Services.AddScoped((s) => new SqlConnection(builder.Configuration.GetConnectionString("MSSQLCONNECTION")));
+
+
+
 builder.Services.AddScoped<IDbTransaction>(s =>
 {
     SqlConnection conn = s.GetRequiredService<SqlConnection>();
@@ -47,6 +54,10 @@ builder.Services.AddSwaggerGen();
 
 
 var app = builder.Build();
+
+
+
+app.MapDefaultEndpoints();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
