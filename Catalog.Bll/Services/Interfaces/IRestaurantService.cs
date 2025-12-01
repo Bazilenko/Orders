@@ -15,6 +15,7 @@ namespace Catalog.Bll.Services.Interfaces
         Task<RestaurantDto?> GetRestaurantByIdAsync(int id);
         Task<RestaurantDto> AddRestaurant(RestaurantCreateDto dto);
         Task UpdateRestaurant(RestaurantUpdateDto dto);
+        Task<IEnumerable<RestaurantDto>> GetRestaurantByRating(int rating);
 
     }
 }

@@ -41,5 +41,12 @@ namespace Catalog.Api.Controllers
             var entity = await _service.GetRestaurantByIdAsync(id);
             return Ok(entity);
         }
+
+        [HttpGet("{rating}")]
+        public async Task<ActionResult> GetByRating(int rating)
+        {
+            var restaurants = await _service.GetRestaurantByRating(rating);
+            return Ok(restaurants);
+        }
     }
 }

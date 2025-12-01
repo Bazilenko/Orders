@@ -656,6 +656,32 @@
   },
   {
     "ContainingType": "Orders.Controllers.OrderController",
+    "Method": "AddDishToOrder",
+    "RelativePath": "api/Order/addDish",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Orders.Bll.DTOs.OrderDish.OrderDishCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Orders.Bll.DTOs.OrderDish.OrderDishDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Orders.Controllers.OrderController",
     "Method": "GetIncome",
     "RelativePath": "api/Order/Get-income-by-date",
     "HttpMethod": "GET",
@@ -815,6 +841,32 @@
     ]
   },
   {
+    "ContainingType": "Orders.Api.Controllers.PaymentController",
+    "Method": "ByOrderId",
+    "RelativePath": "api/Payment/{orderId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Orders.Bll.DTOs.Payment.PaymentDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Catalog.Api.Controllers.RestaurantController",
     "Method": "GetAllDishes",
     "RelativePath": "api/Restaurant",
@@ -871,6 +923,22 @@
       {
         "Name": "dto",
         "Type": "Catalog.Bll.DTOs.Restaurant.RestaurantUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Catalog.Api.Controllers.RestaurantController",
+    "Method": "GetByRating",
+    "RelativePath": "api/Restaurant/{rating}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "rating",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

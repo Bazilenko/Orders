@@ -431,6 +431,22 @@
   },
   {
     "ContainingType": "Catalog.Api.Controllers.RestaurantController",
+    "Method": "GetByRating",
+    "RelativePath": "api/Restaurant/{rating}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "rating",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Catalog.Api.Controllers.RestaurantController",
     "Method": "GetById",
     "RelativePath": "api/Restaurant/by-id",
     "HttpMethod": "GET",

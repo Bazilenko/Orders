@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Catalog.Dal.Context;
 using Catalog.Dal.Entities;
 using Catalog.Dal.Repositories.Interfaces;
+using Catalog.Dal.Specifications;
 using Microsoft.EntityFrameworkCore;
 
 namespace Catalog.Dal.Repositories
@@ -26,5 +27,7 @@ namespace Catalog.Dal.Repositories
             .FirstOrDefaultAsync(r => r.Id == id);
             return restaurant;
         }
+
+       
     }
 }

@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Catalog.Dal.Context;
 using Catalog.Dal.Entities;
 using Catalog.Dal.Repositories.Interfaces;
+using Catalog.Dal.Specifications.Interfaces;
+using Catalog.Dal.Specifications;
 
 namespace Catalog.Dal.Repositories
 {
@@ -18,6 +20,7 @@ namespace Catalog.Dal.Repositories
             _dbContext = dbContext;
             _dbSet = dbContext.Set<T>();
         }
+        
         public async Task<T> AddAsync(T entity, CancellationToken ct = default)
         {
             await _dbSet.AddAsync(entity);
@@ -46,6 +49,18 @@ namespace Catalog.Dal.Repositories
         {
             _dbSet.Update(entity);
             await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<T?> GetEntityWithSpecification(ISpecification<T> specification)
+        {
+            var query = SpecificationEvaluator<T>.GetQuery(_dbSet, specification);
+            return await query.FirstOrDefaultAsync();
+        }
+
+        public async Task<IEnumerable<T>> ListAsync(ISpecification<T> specification)
+        {
+            var query = SpecificationEvaluator<T>.GetQuery(_dbSet, specification);
+            return await query.ToListAsync();
         }
     }
 }

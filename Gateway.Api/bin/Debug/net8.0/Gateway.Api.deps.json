@@ -89,6 +89,17 @@
           }
         }
       },
+      "Dommel/3.5.0": {
+        "dependencies": {
+          "Dapper": "2.1.66"
+        },
+        "runtime": {
+          "lib/net8.0/Dommel.dll": {
+            "assemblyVersion": "3.5.0.0",
+            "fileVersion": "3.5.0.0"
+          }
+        }
+      },
       "EntityFramework/6.0.0": {
         "runtime": {
           "lib/net45/EntityFramework.SqlServer.dll": {
@@ -2415,6 +2426,7 @@
         "dependencies": {
           "AutoMapper": "12.0.1",
           "Dapper": "2.1.66",
+          "Dommel": "3.5.0",
           "Microsoft.Data.SqlClient": "6.1.1"
         },
         "runtime": {
@@ -2493,6 +2505,13 @@
       "sha512": "sha512-4H/f2uYJOZ+YObZjpY9ABrKZI+JNw3uizp6oMzTXwDw6F+2qIPhpRl/1t68O/6e98+vqNiYGu+lswmwdYUy3gg==",
       "path": "dnsclient/1.6.1",
       "hashPath": "dnsclient.1.6.1.nupkg.sha512"
+    },
+    "Dommel/3.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xnmniO9L4PEmkkwZOdAZ8fkjuwtOITVDZKiSgwUJj4LqPJArHchN17sTi2eE3TiwwHu3gywCZ0gWWpZVIEBsoQ==",
+      "path": "dommel/3.5.0",
+      "hashPath": "dommel.3.5.0.nupkg.sha512"
     },
     "EntityFramework/6.0.0": {
       "type": "package",

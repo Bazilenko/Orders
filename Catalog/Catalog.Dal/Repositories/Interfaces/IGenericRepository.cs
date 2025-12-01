@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Catalog.Dal.Entities;
+using Catalog.Dal.Specifications.Interfaces;
 
 namespace Catalog.Dal.Repositories.Interfaces
 {
@@ -14,5 +15,7 @@ namespace Catalog.Dal.Repositories.Interfaces
         Task<T> AddAsync(T entity, CancellationToken ct = default);
         Task UpdateAsync(T entity, CancellationToken ct = default);
         Task DeleteAsync(T entity, CancellationToken ct = default);
+        Task<T?> GetEntityWithSpecification(ISpecification<T> specification);
+        Task<IEnumerable<T>> ListAsync(ISpecification<T> specification);
     }
 }
