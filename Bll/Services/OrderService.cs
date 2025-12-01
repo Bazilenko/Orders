@@ -9,6 +9,7 @@ using Dal.DTOs.Order;
 using Dal.Entities;
 using Dal.UoW.Interfaces;
 using Orders.Bll.DTOs.Order;
+using Orders.Bll.DTOs.OrderDish;
 using Orders.Bll.Exception;
 using Orders.Bll.Services.Interfaces;
 
@@ -56,6 +57,52 @@ namespace Orders.Bll.Services
             if (order == null)
                 throw new NotFoundException($"There is no Order with Id: {orderId}");
             return _mapper.Map<OrderReceiptDto>(order);
+        }
+
+        public async Task<OrderDishDto> AddDishToOrder(OrderDishCreateDto dto)
+        {
+            var order = await _untiOfWork._orderRepository.GetAsync(dto.OrderId);
+            if (order == null)
+                throw new NotFoundException($"Order with id {dto.OrderId} not found!");
+            var entity = _mapper.Map<OrderDish>(dto);
+            int id = await _untiOfWork._orderDishRepository.AddAsync(entity);
+            entity.Id = id;
+            var newTotalCost = await CalculateOrderCost(dto.OrderId);
+            await UpdateOrderCost(order, newTotalCost);
+            return _mapper.Map<OrderDishDto>(entity);
+        }
+
+        public async Task UpdateOrderCost(Order order, decimal cost)
+        {
+            
+            order.TotalAmount = cost;
+            await _untiOfWork._orderRepository.ReplaceAsync(order);
+             _untiOfWork.Commit();
+        }
+
+        public async Task<OrderDto> GetById(int id)
+        {
+            var order = await _untiOfWork._orderRepository.GetAsync(id);
+            if (order == null)
+                throw new NotFoundException($"Order with id {id} not found!");
+            return _mapper.Map<OrderDto>(order);
+        }
+        
+
+
+        public async Task<decimal> CalculateOrderCost(int orderId)
+        {
+            var dishes = await _untiOfWork._orderDishRepository.GetByOrderIdAsync(orderId);
+            decimal totalPrice = 0;
+            if(dishes != null)
+            {
+                foreach (var dish in dishes)
+                {
+                    totalPrice += dish.Quantity * dish.PriceAtTimeOfOrder;
+                }
+            }
+            return totalPrice;
+
         }
     }
 }

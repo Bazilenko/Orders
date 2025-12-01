@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.2.1" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>b5ff328e-a999-47c7-b169-70a7b6a621ad</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="13.0.1" />
+    <PackageReference Include="Aspire.Hosting.MongoDB" Version="13.0.1" />
+    <PackageReference Include="Aspire.Hosting.SqlServer" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aggreagator.Api\Aggreagator.Api.csproj" />
+    <ProjectReference Include="..\Catalog\Catalog.Api\Catalog.Api.csproj" />
+    <ProjectReference Include="..\Delivery.Api\Delivery.Api.csproj" />
+    <ProjectReference Include="..\Gateway.Api\Gateway.Api.csproj" />
+    <ProjectReference Include="..\Orders\Orders.Api.csproj" />
+  </ItemGroup>
+
+</Project>

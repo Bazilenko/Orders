@@ -40,6 +40,13 @@ namespace Orders.Api.Controllers
             return Ok(deleted);
         }
 
+        [HttpGet("{orderId}")]
+        public async Task<ActionResult<PaymentDto?>> ByOrderId(int orderId, CancellationToken ct)
+        {
+            var payment = await _paymentService.GetByOrderId(orderId);
+            return Ok(payment);
+        }
+
 
     }
 }

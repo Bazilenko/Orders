@@ -11,6 +11,7 @@ namespace Orders.Bll.Services.Interfaces
     public interface IPaymentService
     {
         Task<PaymentDto> GetByIdAsync(int id, CancellationToken ct = default);
+        Task<PaymentDto?> GetByOrderId(int orderId, CancellationToken ct = default);
         Task<IEnumerable<PaymentDto>> GetAllAsync(CancellationToken ct = default);
         Task<PaymentDto> CreateAsync(PaymentCreateDto paymentCreateDto, CancellationToken ct = default);
         Task<PaymentDto> UpdateAsync(int id, PaymentUpdateDto paymentUpdateDto, CancellationToken ct = default);

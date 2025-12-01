@@ -61,6 +61,17 @@
           }
         }
       },
+      "Dommel/3.5.0": {
+        "dependencies": {
+          "Dapper": "2.1.66"
+        },
+        "runtime": {
+          "lib/net8.0/Dommel.dll": {
+            "assemblyVersion": "3.5.0.0",
+            "fileVersion": "3.5.0.0"
+          }
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/8.0.0": {
         "runtime": {
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
@@ -436,6 +447,7 @@
         "dependencies": {
           "AutoMapper": "12.0.0",
           "Dapper": "2.1.66",
+          "Dommel": "3.5.0",
           "Microsoft.Data.SqlClient": "6.1.1"
         },
         "runtime": {
@@ -480,6 +492,13 @@
       "sha512": "sha512-/q77jUgDOS+bzkmk3Vy9SiWMaetTw+NOoPAV0xPBsGVAyljd5S6P+4RUW7R3ZUGGr9lDRyPKgAMj2UAOwvqZYw==",
       "path": "dapper/2.1.66",
       "hashPath": "dapper.2.1.66.nupkg.sha512"
+    },
+    "Dommel/3.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xnmniO9L4PEmkkwZOdAZ8fkjuwtOITVDZKiSgwUJj4LqPJArHchN17sTi2eE3TiwwHu3gywCZ0gWWpZVIEBsoQ==",
+      "path": "dommel/3.5.0",
+      "hashPath": "dommel.3.5.0.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/8.0.0": {
       "type": "package",

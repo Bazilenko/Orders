@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dommel;
 
 namespace Dal.Entities
 {
@@ -15,6 +16,7 @@ namespace Dal.Entities
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
         public string Status { get; set; }
         public decimal TotalAmount { get; set; }
+        [Ignore]
         public virtual ICollection<OrderDish?> Dishes { get; set; }
         
 

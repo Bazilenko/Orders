@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5K+smduOYC0=",
+  "dgSpecHash": "serEwhx7Z5k=",
   "success": true,
   "projectFilePath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Gateway.Api\\Gateway.Api.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\Vasyl\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
+    "C:\\Users\\Vasyl\\.nuget\\packages\\dommel\\3.5.0\\dommel.3.5.0.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\entityframework\\6.0.0\\entityframework.6.0.0.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\entityframework.metadata\\1.0.2\\entityframework.metadata.1.0.2.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\fluentvalidation\\12.1.0\\fluentvalidation.12.1.0.nupkg.sha512",
@@ -217,6 +218,15 @@
     "C:\\Users\\Vasyl\\.nuget\\packages\\zstdsharp.port\\0.7.3\\zstdsharp.port.0.7.3.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "message": "Problem reading the cache file C:\\Users\\Vasyl\\source\\repos\\Orders\\Gateway.Api\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0.",
+      "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Gateway.Api\\Gateway.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Gateway.Api\\Gateway.Api.csproj",
+      "targetGraphs": []
+    },
     {
       "code": "NU1608",
       "level": "Warning",

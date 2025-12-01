@@ -97,6 +97,22 @@
           }
         }
       },
+      "Dommel/3.5.0": {
+        "type": "package",
+        "dependencies": {
+          "Dapper": "2.1.66"
+        },
+        "compile": {
+          "lib/net8.0/Dommel.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Dommel.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "EntityFramework/6.0.0": {
         "type": "package",
         "compile": {
@@ -3926,6 +3942,7 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
           "Orders.Bll": "1.0.0",
           "Orders.Dal": "1.0.0",
+          "Orders.ServiceDefaults": "1.0.0",
           "Swashbuckle.AspNetCore": "6.6.2"
         },
         "compile": {
@@ -3958,6 +3975,7 @@
         "dependencies": {
           "AutoMapper": "12.0.0",
           "Dapper": "2.1.66",
+          "Dommel": "3.5.0",
           "Microsoft.Data.SqlClient": "6.1.1"
         },
         "compile": {
@@ -4105,6 +4123,26 @@
         "lib/netstandard2.0/DnsClient.xml",
         "lib/netstandard2.1/DnsClient.dll",
         "lib/netstandard2.1/DnsClient.xml"
+      ]
+    },
+    "Dommel/3.5.0": {
+      "sha512": "xnmniO9L4PEmkkwZOdAZ8fkjuwtOITVDZKiSgwUJj4LqPJArHchN17sTi2eE3TiwwHu3gywCZ0gWWpZVIEBsoQ==",
+      "type": "package",
+      "path": "dommel/3.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "dommel.3.5.0.nupkg.sha512",
+        "dommel.nuspec",
+        "lib/net10.0/Dommel.dll",
+        "lib/net10.0/Dommel.xml",
+        "lib/net8.0/Dommel.dll",
+        "lib/net8.0/Dommel.xml",
+        "lib/net9.0/Dommel.dll",
+        "lib/net9.0/Dommel.xml",
+        "lib/netstandard2.0/Dommel.dll",
+        "lib/netstandard2.0/Dommel.xml"
       ]
     },
     "EntityFramework/6.0.0": {
@@ -11443,6 +11481,12 @@
     }
   },
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Vasyl\\source\\repos\\Orders\\Gateway.Api\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0."
+    },
     {
       "code": "NU1608",
       "level": "Warning",

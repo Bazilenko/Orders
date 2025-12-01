@@ -78,7 +78,16 @@ namespace Dal.Repository
         {
             return (from prop in listOfProperties
                     let attributes = prop.GetCustomAttributes(typeof(DescriptionAttribute), false)
-                    where attributes.Length <= 0 || (attributes[0] as DescriptionAttribute)?.Description != "ignore"
+                    where
+                      
+                        (attributes.Length <= 0 || (attributes[0] as DescriptionAttribute)?.Description != "ignore")
+
+                      
+                        && prop.Name != "Id"
+
+                      
+                        && (prop.PropertyType == typeof(string) || !typeof(System.Collections.IEnumerable).IsAssignableFrom(prop.PropertyType))
+
                     select prop.Name).ToList();
         }
 
@@ -105,16 +114,22 @@ namespace Dal.Repository
         private string GenerateUpdateQuery()
         {
             var updateQuery = new StringBuilder($"UPDATE {_tableName} SET ");
+
+            
             var properties = GenerateListOfProperties(GetProperties);
+
             properties.ForEach(property =>
             {
-                if (!property.Equals("Id"))
-                {
-                    updateQuery.Append($"{property}=@{property},");
-                }
+                
+                updateQuery.Append($"{property}=@{property},");
             });
+
+            
             updateQuery.Remove(updateQuery.Length - 1, 1);
+
+            
             updateQuery.Append(" WHERE Id=@Id");
+
             return updateQuery.ToString();
         }
     }

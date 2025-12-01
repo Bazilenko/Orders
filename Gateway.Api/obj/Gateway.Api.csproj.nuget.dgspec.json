@@ -401,6 +401,10 @@
               "target": "Package",
               "version": "[2.1.66, )"
             },
+            "Dommel": {
+              "target": "Package",
+              "version": "[3.5.0, )"
+            },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[6.1.1, )"
@@ -988,6 +992,9 @@
               },
               "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Orders.Dal.csproj": {
                 "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Dal\\Orders.Dal.csproj"
+              },
+              "C:\\Users\\Vasyl\\source\\repos\\Orders\\Orders.ServiceDefaults\\Orders.ServiceDefaults.csproj": {
+                "projectPath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Orders.ServiceDefaults\\Orders.ServiceDefaults.csproj"
               }
             }
           }

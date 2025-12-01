@@ -14,6 +14,7 @@ namespace Orders.Bll.Mapper.Profiles
         public OrderDishProfile() {
             CreateMap<OrderDish, OrderDishDto>();
             CreateMap<OrderDishDto, OrderDish>();
+            CreateMap<OrderDishCreateDto, OrderDish>();
         }
     }
 }
