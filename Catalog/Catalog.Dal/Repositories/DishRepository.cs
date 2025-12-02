@@ -18,6 +18,7 @@ namespace Catalog.Dal.Repositories
             _dbContext = dbContext;
         }
 
+        //Explicit loading -------------
         public async Task<IEnumerable<Dish?>> GetDishesByCategory(int categoryId)
         {
             var category = await _dbContext.Categories.FindAsync(categoryId);

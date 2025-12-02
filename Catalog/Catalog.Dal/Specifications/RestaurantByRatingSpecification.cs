@@ -13,6 +13,7 @@ namespace Catalog.Dal.Specifications
     {
         public RestaurantByRatingSpecification(int rating) : base(r => r.Rating == rating)
         {
+            
         }
 
     }
