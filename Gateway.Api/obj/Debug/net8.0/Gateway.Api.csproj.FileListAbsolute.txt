@@ -205,3 +205,4 @@ C:\Users\Vasyl\source\repos\Orders\Gateway.Api\obj\Debug\net8.0\Gateway.Api.pdb
 C:\Users\Vasyl\source\repos\Orders\Gateway.Api\obj\Debug\net8.0\Gateway.Api.genruntimeconfig.cache
 C:\Users\Vasyl\source\repos\Orders\Gateway.Api\obj\Debug\net8.0\ref\Gateway.Api.dll
 C:\Users\Vasyl\source\repos\Orders\Gateway.Api\bin\Debug\net8.0\Dommel.dll
+C:\Users\Vasyl\source\repos\Orders\Gateway.Api\bin\Debug\net8.0\Bogus.dll

@@ -25,6 +25,7 @@ builder.Services.AddScoped<IDishRepository, DishRepository>();
 builder.Services.AddScoped<IRestaurantRepository, RestaurantRepository>();
 builder.Services.AddScoped<IContactRepository, ContactRepository>();
 builder.Services.AddScoped<IAddressRepository, AddressRepository>();
+builder.Services.AddScoped<IDishOptionRepository, DishOptionRepository>();
 
 
 builder.Services.AddScoped<ICategoryService, CategoryService>();
@@ -51,9 +52,17 @@ var app = builder.Build();
 //migration for data base in container
 using (var scope = app.Services.CreateScope())
 {
-    var db = scope.ServiceProvider.GetRequiredService<MyDbContext>();
+    var services = scope.ServiceProvider;
+    var db = services.GetRequiredService<MyDbContext>();
     db.Database.Migrate();
+
+    //For data seeding
+    //var uow = services.GetRequiredService<IUnitOfWork>();
+    //await SeedData.SeedAsync(uow);
 }
+
+
+
 
 app.MapDefaultEndpoints();
 

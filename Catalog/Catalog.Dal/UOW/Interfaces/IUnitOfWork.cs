@@ -15,7 +15,7 @@ namespace Catalog.Dal.UOW.Interfaces
         IRestaurantRepository Restaurants { get; }
         IContactRepository Contacts { get; }
         IAddressRepository Addresses { get; }
-
+        IDishOptionRepository DishOptions { get; }
         Task SaveChangesAsync(CancellationToken ct = default);
     }
 }

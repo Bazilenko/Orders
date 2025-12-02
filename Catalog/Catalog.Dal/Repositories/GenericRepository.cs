@@ -62,5 +62,10 @@ namespace Catalog.Dal.Repositories
             var query = SpecificationEvaluator<T>.GetQuery(_dbSet, specification);
             return await query.ToListAsync();
         }
+
+        public async Task AddRangeAsync(IEnumerable<T> entities, CancellationToken ct = default)
+        {
+            await _dbSet.AddRangeAsync(entities);
+        }
     }
 }

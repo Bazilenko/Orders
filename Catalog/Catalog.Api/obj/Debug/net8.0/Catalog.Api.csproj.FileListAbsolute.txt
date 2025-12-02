@@ -157,3 +157,4 @@ C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Api\bin\Debug\net8.0\Serilog.
 C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Api\bin\Debug\net8.0\Serilog.Sinks.Console.dll
 C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Api\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
 C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Api\bin\Debug\net8.0\Serilog.Sinks.File.dll
+C:\Users\Vasyl\source\repos\Orders\Catalog\Catalog.Api\bin\Debug\net8.0\Bogus.dll

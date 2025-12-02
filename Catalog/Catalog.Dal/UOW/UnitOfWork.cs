@@ -17,8 +17,9 @@ namespace Catalog.Dal.UOW
         public IRestaurantRepository Restaurants { get; set; }
         public IContactRepository Contacts { get; set; }
         public IAddressRepository Addresses { get; set; }
+        public IDishOptionRepository DishOptions { get; set; } 
 
-        public UnitOfWork(MyDbContext dbContext, ICategoryRepository categoryRepository, IDishRepository dishRepository, IRestaurantRepository restaurants, IContactRepository contacts, IAddressRepository addresses)
+        public UnitOfWork(MyDbContext dbContext, ICategoryRepository categoryRepository, IDishRepository dishRepository, IRestaurantRepository restaurants, IContactRepository contacts, IAddressRepository addresses, IDishOptionRepository dishOptions)
         {
             _dbContext = dbContext;
             Categories = categoryRepository;
@@ -26,6 +27,7 @@ namespace Catalog.Dal.UOW
             Restaurants = restaurants;
             Contacts = contacts;
             Addresses = addresses;
+            DishOptions = dishOptions;
         }
 
         public void Dispose()

@@ -16,6 +16,7 @@ namespace Catalog.Dal.Repositories.Interfaces
         Task UpdateAsync(T entity, CancellationToken ct = default);
         Task DeleteAsync(T entity, CancellationToken ct = default);
         Task<T?> GetEntityWithSpecification(ISpecification<T> specification);
+        Task AddRangeAsync(IEnumerable<T> entities, CancellationToken ct = default);
         Task<IEnumerable<T>> ListAsync(ISpecification<T> specification);
     }
 }

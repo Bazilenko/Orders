@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Gbatuw+eP1M=",
+  "dgSpecHash": "CZqby7Baq8Q=",
   "success": true,
   "projectFilePath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Catalog\\Catalog.Dal\\Catalog.Dal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vasyl\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\Vasyl\\.nuget\\packages\\bogus\\35.6.5\\bogus.35.6.5.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\entityframework\\6.0.0\\entityframework.6.0.0.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\entityframework.metadata\\1.0.2\\entityframework.metadata.1.0.2.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\fluentvalidation\\8.6.1\\fluentvalidation.8.6.1.nupkg.sha512",
