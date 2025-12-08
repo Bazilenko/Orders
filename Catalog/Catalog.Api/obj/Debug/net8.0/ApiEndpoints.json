@@ -470,5 +470,46 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "Catalog.Api.Controllers.RestaurantController",
+    "Method": "GetAll",
+    "RelativePath": "api/Restaurant/get-filtered",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "SortColumn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "SortOrder",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Catalog.Bll.DTOs.Pagination.PagedResult\u00601[[Catalog.Bll.DTOs.Restaurant.RestaurantDto, Catalog.Bll, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
+using System.Linq.Dynamic.Core;
 using System.Text;
 using System.Threading.Tasks;
 using Catalog.Dal.Context;
@@ -66,6 +66,23 @@ namespace Catalog.Dal.Repositories
         public async Task AddRangeAsync(IEnumerable<T> entities, CancellationToken ct = default)
         {
             await _dbSet.AddRangeAsync(entities);
+        }
+
+        public async Task<(IEnumerable<T> Items, int TotalCount)> GetPagedDataAsync(
+            int pageNumber, int pageSize, string sortColumn, string sortOrder)
+        {
+            var query = _dbSet.AsQueryable();
+
+            query = query.OrderBy($"{sortColumn} {sortOrder}");
+
+            var totalCount = await query.CountAsync();
+
+            var items = await query
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return (items, totalCount);
         }
     }
 }

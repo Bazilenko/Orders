@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Catalog.Bll.DTOs.Dish;
+using Catalog.Bll.DTOs.Pagination;
 using Catalog.Bll.DTOs.Restaurant;
 using Catalog.Dal.UOW.Interfaces;
 
@@ -16,6 +17,7 @@ namespace Catalog.Bll.Services.Interfaces
         Task<RestaurantDto> AddRestaurant(RestaurantCreateDto dto);
         Task UpdateRestaurant(RestaurantUpdateDto dto);
         Task<IEnumerable<RestaurantDto>> GetRestaurantByRating(int rating);
+        Task<PagedResult<RestaurantDto>> GetPaginatedAsync(PagedRequest request);
 
     }
 }

@@ -2,6 +2,20 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 
+builder.Services.AddHttpClient("catalog", client =>
+{
+    client.BaseAddress = new Uri("http://catalog-api");
+});
+
+builder.Services.AddHttpClient("orders", client =>
+{
+    client.BaseAddress = new Uri("http://order-api");
+});
+
+builder.Services.AddHttpClient("delivery", client =>
+{
+    client.BaseAddress = new Uri("http://delivery-api");
+});
 
 
 

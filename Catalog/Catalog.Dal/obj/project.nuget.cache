@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CZqby7Baq8Q=",
+  "dgSpecHash": "UN2/X47+MdY=",
   "success": true,
   "projectFilePath": "C:\\Users\\Vasyl\\source\\repos\\Orders\\Catalog\\Catalog.Dal\\Catalog.Dal.csproj",
   "expectedPackageFiles": [
@@ -121,6 +121,7 @@
     "C:\\Users\\Vasyl\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\system.io.pipelines\\9.0.9\\system.io.pipelines.9.0.9.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
+    "C:\\Users\\Vasyl\\.nuget\\packages\\system.linq.dynamic.core\\1.7.1\\system.linq.dynamic.core.1.7.1.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\Vasyl\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",

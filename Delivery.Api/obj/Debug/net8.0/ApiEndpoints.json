@@ -2,7 +2,7 @@
   {
     "ContainingType": "Delivery.Api.Controllers.CourierController",
     "Method": "AddCourier",
-    "RelativePath": "api/Deliveries/Courier",
+    "RelativePath": "api/delivery/Courier",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -18,7 +18,7 @@
   {
     "ContainingType": "Delivery.Api.Controllers.CourierController",
     "Method": "UpdateCourier",
-    "RelativePath": "api/Deliveries/Courier",
+    "RelativePath": "api/delivery/Courier",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -34,7 +34,7 @@
   {
     "ContainingType": "Delivery.Api.Controllers.CourierController",
     "Method": "DeleteCourier",
-    "RelativePath": "api/Deliveries/Courier",
+    "RelativePath": "api/delivery/Courier",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -50,7 +50,7 @@
   {
     "ContainingType": "Delivery.Api.Controllers.CourierController",
     "Method": "GetCourierByIdQuery",
-    "RelativePath": "api/Deliveries/Courier/{id}",
+    "RelativePath": "api/delivery/Courier/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -66,7 +66,7 @@
   {
     "ContainingType": "Delivery.Api.Controllers.CourierController",
     "Method": "GetByPhoneNumber",
-    "RelativePath": "api/Deliveries/Courier/by/{phoneNumber}",
+    "RelativePath": "api/delivery/Courier/by/{phoneNumber}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -82,7 +82,7 @@
   {
     "ContainingType": "Delivery.Api.Controllers.DeliveryController",
     "Method": "CreateDelivery",
-    "RelativePath": "api/Deliveries/Delivery",
+    "RelativePath": "api/delivery/Delivery",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -98,7 +98,7 @@
   {
     "ContainingType": "Delivery.Api.Controllers.DeliveryController",
     "Method": "AssignCourierToDelivery",
-    "RelativePath": "api/Deliveries/Delivery",
+    "RelativePath": "api/delivery/Delivery",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -114,7 +114,7 @@
   {
     "ContainingType": "Delivery.Api.Controllers.DeliveryController",
     "Method": "AssignWindowToDelivery",
-    "RelativePath": "api/Deliveries/Delivery/assign-window",
+    "RelativePath": "api/delivery/Delivery/assign-window",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -130,7 +130,7 @@
   {
     "ContainingType": "Delivery.Api.Controllers.DeliveryController",
     "Method": "GetAllDeliveries",
-    "RelativePath": "api/Deliveries/Delivery/get-all",
+    "RelativePath": "api/delivery/Delivery/get-all",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

@@ -1,17 +1,21 @@
+using Microsoft.OpenApi.Models;
+using Yarp.ReverseProxy;
 using Yarp.ReverseProxy.Transforms;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
-
 builder.Services.AddServiceDiscovery();
+
+
 
 builder.Services.AddReverseProxy()
     .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"))
     .AddServiceDiscoveryDestinationResolver();
 
 // Add services to the container.
+
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -29,10 +33,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+app.MapReverseProxy();
+
+app.UseRouting();
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+await app.RunAsync();

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Catalog.Bll.DTOs.Dish;
+using Catalog.Bll.DTOs.Pagination;
 using Catalog.Bll.DTOs.Restaurant;
 using Catalog.Bll.Services.Interfaces;
 using Catalog.Dal.Entities;
@@ -49,6 +50,27 @@ namespace Catalog.Bll.Services
             var restaurants =  await _unitOfWork.Restaurants.ListAsync(specification);
             return _mapper.Map<IEnumerable<RestaurantDto>>(restaurants);
 
+        }
+
+        public async Task<PagedResult<RestaurantDto>> GetPaginatedAsync(PagedRequest request)
+        {
+            
+            var (entities, totalCount) = await _unitOfWork.Restaurants.GetPagedDataAsync(
+                request.PageNumber,
+                request.PageSize,
+                request.SortColumn,
+                request.SortOrder
+            );
+
+            
+            var dtos = _mapper.Map<IEnumerable<RestaurantDto>>(entities);
+
+            return new PagedResult<RestaurantDto>(
+                dtos.ToList(),
+                totalCount,
+                request.PageNumber,
+                request.PageSize
+            );
         }
 
         public Task UpdateRestaurant(RestaurantUpdateDto dto)

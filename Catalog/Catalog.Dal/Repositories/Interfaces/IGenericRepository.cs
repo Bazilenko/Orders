@@ -18,5 +18,12 @@ namespace Catalog.Dal.Repositories.Interfaces
         Task<T?> GetEntityWithSpecification(ISpecification<T> specification);
         Task AddRangeAsync(IEnumerable<T> entities, CancellationToken ct = default);
         Task<IEnumerable<T>> ListAsync(ISpecification<T> specification);
-    }
+       
+            Task<(IEnumerable<T> Items, int TotalCount)> GetPagedDataAsync(
+                int pageNumber,
+                int pageSize,
+                string sortColumn,
+                string sortOrder);
+        }
+    
 }

@@ -1,11 +1,8 @@
 using Microsoft.Extensions.Configuration;
 using Projects;
-
+using Aspire.Hosting;
 
 var builder = DistributedApplication.CreateBuilder(args);
-
-
-
 
 
 
@@ -25,23 +22,32 @@ var ordersDb = sql.AddDatabase("ordersDb");
 
 var catalogDb = sql.AddDatabase("catalogDb");
 
-var deliveryService = builder.AddProject<Projects.Delivery_Api>("delivery-api")
+var deliveryService = builder.AddProject<Delivery_Api>("delivery-api")
     .WithReference(deliveryDb)
     .WaitFor(deliveryDb);
 
 
-var catalogService = builder.AddProject<Projects.Catalog_Api>("catalog-api")
+var catalogService = builder.AddProject<Catalog_Api>("catalog-api")
     .WithReference(catalogDb)
     .WaitFor(catalogDb);
 
-var ordersService = builder.AddProject<Projects.Orders_Api>("orders-api")
+var ordersService = builder.AddProject<Orders_Api>("orders-api")
     .WithReference(ordersDb)
     .WaitFor(ordersDb);
 
 
-builder.AddProject<Projects.Gateway_Api>("gateway-api");
 
-builder.AddProject<Projects.Aggreagator_Api>("aggreagator-api")
+builder.AddProject<Gateway_Api>("gateway-api")
+    .WithExternalHttpEndpoints()
+    .WaitFor(catalogService)
+    .WaitFor(deliveryService)
+    .WaitFor(ordersService)
+    .WithReference(deliveryService)
+    .WithReference(catalogService)
+    .WithReference(ordersService);
+
+builder.AddProject<Aggreagator_Api>("aggreagator-api")
+    .WithExternalHttpEndpoints()
     .WithReference(deliveryService)
     .WithReference(catalogService)
     .WithReference(ordersService)

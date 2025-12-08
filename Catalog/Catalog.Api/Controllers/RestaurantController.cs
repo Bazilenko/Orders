@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Catalog.Bll.DTOs.Dish;
+using Catalog.Bll.DTOs.Pagination;
 using Catalog.Bll.DTOs.Restaurant;
+using Catalog.Bll.Services;
 using Catalog.Bll.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -47,6 +49,14 @@ namespace Catalog.Api.Controllers
         {
             var restaurants = await _service.GetRestaurantByRating(rating);
             return Ok(restaurants);
+        }
+
+        [HttpGet("get-filtered")]
+        public async Task<ActionResult<PagedResult<RestaurantDto>>> GetAll([FromQuery] PagedRequest request)
+        {
+            var result = await _service.GetPaginatedAsync(request);
+
+            return Ok(result);
         }
     }
 }

@@ -13,10 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Catalog\Catalog.Api\Catalog.Api.csproj" />
-    <ProjectReference Include="..\Delivery.Api\Delivery.Api.csproj" />
+    
     <ProjectReference Include="..\Orders.ServiceDefaults\Orders.ServiceDefaults.csproj" />
-    <ProjectReference Include="..\Orders\Orders.Api.csproj" />
   </ItemGroup>
 
   <ItemGroup>
