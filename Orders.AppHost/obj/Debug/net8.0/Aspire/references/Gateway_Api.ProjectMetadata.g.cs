@@ -15,7 +15,7 @@ public class Gateway_Api : global::Aspire.Hosting.IProjectMetadata
     /// <summary>
     /// The path to the Gateway_Api project.
     /// </summary>
-    public string ProjectPath => """C:\Users\Vasyl\source\repos\Orders\Gateway.Api\Gateway.Api.csproj""";
+    public string ProjectPath => """C:\C#Projects\FoodDelivery\Gateway.Api\Gateway.Api.csproj""";
 
     /// <summary>
     /// Gets a value indicating whether building the project before running it should be suppressed.

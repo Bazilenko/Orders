@@ -17,5 +17,5 @@ public class Orders_AppHost
     /// <summary>
     /// The path to the Aspire Host project.
     /// </summary>
-    public static string ProjectPath => """C:\Users\Vasyl\source\repos\Orders\Orders.AppHost""";
+    public static string ProjectPath => """C:\C#Projects\FoodDelivery\Orders.AppHost""";
 }

@@ -15,7 +15,7 @@ public class Aggreagator_Api : global::Aspire.Hosting.IProjectMetadata
     /// <summary>
     /// The path to the Aggreagator_Api project.
     /// </summary>
-    public string ProjectPath => """C:\Users\Vasyl\source\repos\Orders\Aggreagator.Api\Aggreagator.Api.csproj""";
+    public string ProjectPath => """C:\C#Projects\FoodDelivery\Aggreagator.Api\Aggreagator.Api.csproj""";
 
     /// <summary>
     /// Gets a value indicating whether building the project before running it should be suppressed.
