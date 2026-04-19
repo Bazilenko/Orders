@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Catalog\Catalog.Dal\Catalog.Dal.csproj" />
+    <ProjectReference Include="C:\C#Projects\FoodDelivery\Catalog\Catalog.Dal\Catalog.Dal.csproj" />
   </ItemGroup>
 
 </Project>
