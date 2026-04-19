@@ -6,7 +6,7 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 
 
-//var password = builder.AddParameter("msSql-password", "mssql123",secret: true);
+var password = builder.AddParameter("msSql-password", "mssql123",secret: true);
 
 //var userMsSql = builder.AddParameter("sql-username", "mssql", secret: true);
 

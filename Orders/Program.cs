@@ -11,6 +11,7 @@ using Orders.Bll.Mapper.Profiles;
 using Orders.Bll.Services;
 using Orders.Bll.Services.Interfaces;
 using Orders.Dal.Repository;
+using Dapper;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,9 +35,13 @@ builder.Services.AddAutoMapper(typeof(PaymentProfile));
 
 builder.Services.AddControllers();
 
-builder.Services.AddScoped((s) => new SqlConnection(builder.Configuration.GetConnectionString("MSSQLCONNECTION")));
+builder.Services.AddScoped((s) => new SqlConnection(builder.Configuration.GetConnectionString("ordersDb")));
 
-
+using (var connection = new SqlConnection(builder.Configuration.GetConnectionString("ordersDb")))
+{
+    var sql = File.ReadAllText("__createDbAndTables.sql");
+    connection.Execute(sql);
+}
 
 builder.Services.AddScoped<IDbTransaction>(s =>
 {
