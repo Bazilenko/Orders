@@ -18,15 +18,15 @@ public class GenericRepositoryTests : IDisposable
     [Fact]
     public async Task GetByIdAsync_ExistingId_ReturnsRestaurant()
     {
-        // Arrange [cite: 109]
+        // Arrange 
         var restaurant = TestDataBuilder.CreateRestaurant();
         await _context.Set<Restaurant>().AddAsync(restaurant);
         await _context.SaveChangesAsync();
 
-        // Act [cite: 109]
+        // Act 
         var result = await _sut.GetByIdAsync(1);
 
-        // Assert [cite: 109]
+        // Assert 
         result.Should().NotBeNull();
         result.Id.Should().Be(1);
         result.Name.Should().Be(restaurant.Name);
@@ -43,7 +43,7 @@ public class GenericRepositoryTests : IDisposable
         // Act
         var result = await _sut.GetAllAsync();
 
-        // Assert [cite: 324]
+        // Assert 
         result.Should().HaveCount(3);
         result.Should().NotContainNulls();
     }
@@ -55,7 +55,6 @@ public class GenericRepositoryTests : IDisposable
         var restaurant = TestDataBuilder.CreateRestaurant();
 
         // Act
-        // Оскільки ваш AddAsync вже викликає SaveChangesAsync всередині
         await _sut.AddAsync(restaurant);
 
         // Assert
@@ -74,7 +73,6 @@ public class GenericRepositoryTests : IDisposable
 
         // Act
         await _sut.DeleteAsync(restaurant);
-        // Примітка: у вашому коді DeleteAsync не викликає SaveChangesAsync
         await _context.SaveChangesAsync(); 
 
         // Assert
@@ -86,26 +84,24 @@ public class GenericRepositoryTests : IDisposable
 public async Task GetByIdAsync_NonExistingId_ReturnsNull()
 {
     // Arrange
-    // Залишаємо базу порожньою або просто не додаємо запис з ID 999 [cite: 210]
 
     // Act
     var result = await _sut.GetByIdAsync(999);
 
     // Assert
-    result.Should().BeNull(); // Перевіряємо, що повернувся null [cite: 210, 324]
+    result.Should().BeNull(); 
 }
 [Fact]
 public async Task GetAllAsync_EmptyDatabase_ReturnsEmptyCollection()
 {
     // Arrange
-    // Нічого не додаємо в _context [cite: 212]
 
     // Act
     var result = await _sut.GetAllAsync();
 
     // Assert
-    result.Should().NotBeNull(); // Колекція має існувати [cite: 212, 324]
-    result.Should().BeEmpty();   // Але бути порожньою [cite: 212, 324]
+    result.Should().NotBeNull(); 
+    result.Should().BeEmpty();   
 }
 
 [Fact]
@@ -113,7 +109,6 @@ public async Task DeleteAsync_NonExistingEntity_ThrowsException()
 {
     // Arrange
     var nonExistingRestaurant = TestDataBuilder.CreateRestaurant(id: 999);
-    // Ми не додаємо його в контекст
 
     // Act
     var act = async () => 
@@ -123,9 +118,8 @@ public async Task DeleteAsync_NonExistingEntity_ThrowsException()
     };
 
     // Assert
-    // Перевіряємо, що система викидає помилку при спробі зберегти зміни [cite: 223, 324]
     await act.Should().ThrowAsync<DbUpdateConcurrencyException>(); 
 }
 
-    public void Dispose() => _context.Dispose(); // Звільнення ресурсів [cite: 201]
+    public void Dispose() => _context.Dispose(); 
 }
