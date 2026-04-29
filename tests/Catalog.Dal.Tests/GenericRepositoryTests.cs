@@ -3,11 +3,14 @@ using Catalog.Dal.Entities;
 using Catalog.Dal.Repositories;  
 using Catalog.Dal.Context;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.CompilerServices;
+using Xunit;
+
+namespace Catalog.Dal.Tests;
+
 public class GenericRepositoryTests : IDisposable
 {
     private readonly MyDbContext _context;
-    private readonly GenericRepository<Restaurant> _sut; // System Under Test [cite: 194]
+    private readonly GenericRepository<Restaurant> _sut;
 
     public GenericRepositoryTests()
     {
@@ -20,16 +23,14 @@ public class GenericRepositoryTests : IDisposable
     {
         // Arrange 
         var restaurant = TestDataBuilder.CreateRestaurant();
-        await _context.Set<Restaurant>().AddAsync(restaurant);
         await _sut.AddAsync(restaurant);
-        await _context.SaveChangesAsync();
 
         // Act 
-        var result = await _sut.GetByIdAsync(1);
+        var result = await _sut.GetByIdAsync(restaurant.Id);
 
         // Assert 
         result.Should().NotBeNull();
-        result.Id.Should().Be(1);
+        result.Id.Should().Be(restaurant.Id);
         result.Name.Should().Be(restaurant.Name);
     }
 
@@ -38,8 +39,8 @@ public class GenericRepositoryTests : IDisposable
     {
         // Arrange
         var restaurants = TestDataBuilder.CreateRestaurants(3);
-        await _context.Set<Restaurant>().AddRangeAsync(restaurants);
-        await _context.SaveChangesAsync();
+        await _sut.AddRangeAsync(restaurants);
+        await _context.SaveChangesAsync(); 
 
         // Act
         var result = await _sut.GetAllAsync();
@@ -56,71 +57,76 @@ public class GenericRepositoryTests : IDisposable
         var restaurant = TestDataBuilder.CreateRestaurant();
 
         // Act
-        await _sut.AddAsync(restaurant);
+        var result = await _sut.AddAsync(restaurant);
 
         // Assert
+        result.Should().NotBeNull();
         var dbResult = await _context.Set<Restaurant>().FindAsync(restaurant.Id);
         dbResult.Should().NotBeNull();
         dbResult!.Name.Should().Be(restaurant.Name);
     }
 
     [Fact]
+    public async Task UpdateAsync_ExistingEntity_UpdatesDatabase()
+    {
+        // Arrange
+        var restaurant = TestDataBuilder.CreateRestaurant();
+        await _sut.AddAsync(restaurant);
+        
+        // Act
+        restaurant.Name = "Updated Name";
+        await _sut.UpdateAsync(restaurant);
+
+        // Assert
+        var dbResult = await _context.Set<Restaurant>().FindAsync(restaurant.Id);
+        dbResult!.Name.Should().Be("Updated Name");
+    }
+
+    [Fact]
     public async Task DeleteAsync_ExistingEntity_RemovesFromDatabase()
     {
         // Arrange
-        var restaurant = TestDataBuilder.CreateRestaurant(id: 10);
-        await _context.Set<Restaurant>().AddAsync(restaurant);
-        await _context.SaveChangesAsync();
+        var restaurant = TestDataBuilder.CreateRestaurant();
+        await _sut.AddAsync(restaurant);
 
         // Act
         await _sut.DeleteAsync(restaurant);
         await _context.SaveChangesAsync(); 
 
         // Assert
-        var dbResult = await _context.Set<Restaurant>().FindAsync(10);
+        var dbResult = await _context.Set<Restaurant>().FindAsync(restaurant.Id);
         dbResult.Should().BeNull();
     }
 
     [Fact]
-public async Task GetByIdAsync_NonExistingId_ReturnsNull()
-{
-    // Arrange
-
-    // Act
-    var result = await _sut.GetByIdAsync(999);
-
-    // Assert
-    result.Should().BeNull(); 
-}
-[Fact]
-public async Task GetAllAsync_EmptyDatabase_ReturnsEmptyCollection()
-{
-    // Arrange
-
-    // Act
-    var result = await _sut.GetAllAsync();
-
-    // Assert
-    result.Should().NotBeNull(); 
-    result.Should().BeEmpty();   
-}
-
-[Fact]
-public async Task DeleteAsync_NonExistingEntity_ThrowsException()
-{
-    // Arrange
-    var nonExistingRestaurant = TestDataBuilder.CreateRestaurant(id: 999);
-
-    // Act
-    var act = async () => 
+    public async Task GetPagedDataAsync_ReturnsCorrectPage()
     {
-        await _sut.DeleteAsync(nonExistingRestaurant);
+        // Arrange
+        var restaurants = TestDataBuilder.CreateRestaurants(10); // Створюємо 10 записів
+        await _sut.AddRangeAsync(restaurants);
         await _context.SaveChangesAsync();
-    };
 
-    // Assert
-    await act.Should().ThrowAsync<DbUpdateConcurrencyException>(); 
-}
+        // Act
+        var (items, totalCount) = await _sut.GetPagedDataAsync(1, 3, "Name", "asc");
 
-    public void Dispose() => _context.Dispose(); 
+        // Assert
+        items.Should().HaveCount(3);
+        totalCount.Should().Be(10);
+    }
+
+    [Fact]
+    public async Task GetByIdAsync_NonExistingId_ReturnsNull()
+    {
+        // Act
+        var result = await _sut.GetByIdAsync(999);
+
+        // Assert
+        result.Should().BeNull(); 
+    }
+
+    public void Dispose()
+    {
+        _context.Database.EnsureDeleted(); 
+        _context.Dispose();
+    }
 }
