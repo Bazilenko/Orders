@@ -21,6 +21,7 @@ public class GenericRepositoryTests : IDisposable
         // Arrange 
         var restaurant = TestDataBuilder.CreateRestaurant();
         await _context.Set<Restaurant>().AddAsync(restaurant);
+        await _sut.AddAsync(restaurant);
         await _context.SaveChangesAsync();
 
         // Act 

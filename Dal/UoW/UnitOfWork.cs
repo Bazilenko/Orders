@@ -4,11 +4,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dal.Repository;
-using Dal.Repository.Interfaces;
-using Dal.UoW.Interfaces;
+using Orders.Dal.Repository;
+using Orders.Dal.Repository.Interfaces;
+using Orders.Dal.UoW.Interfaces;
 
-namespace Dal.UoW
+namespace Orders.Dal.UoW
 {
     public class UnitOfWork : IUnitOfWork, IDisposable
     {

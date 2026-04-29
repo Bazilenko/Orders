@@ -6,11 +6,12 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Dal.Repository.Interfaces;
+using Orders.Dal.Repository.Interfaces;
+using Orders.Dal.Context.Interfaces;
 using Dapper;
 using Microsoft.Data.SqlClient;
 
-namespace Dal.Repository
+namespace Orders.Dal.Repository
 { 
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {

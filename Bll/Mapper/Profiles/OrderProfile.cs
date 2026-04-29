@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Dal.DTOs.Order;
-using Dal.Entities;
+using Orders.Dal.Entities;
 using Orders.Bll.DTOs.Order;
 
 namespace Orders.Bll.Mapper.Profiles

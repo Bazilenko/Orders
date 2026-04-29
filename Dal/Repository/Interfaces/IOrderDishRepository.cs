@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dal.Entities;
+using Orders.Dal.Entities;
 
-namespace Dal.Repository.Interfaces
+namespace Orders.Dal.Repository.Interfaces
 {
     public interface IOrderDishRepository : IGenericRepository<OrderDish>
     {

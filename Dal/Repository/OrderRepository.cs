@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Dal.Entities;
-using Dal.Repository;
-using Dal.Repository.Interfaces;
+using Orders.Dal.Context;
+using Orders.Dal.Entities;
+using Orders.Dal.Repository;
+using Orders.Dal.Repository.Interfaces;
+using Orders.Dal.Context.Interfaces;
 using Dapper;
 using Microsoft.Data.SqlClient;
 
@@ -14,107 +15,67 @@ namespace Orders.Dal.Repository
 {
     public class OrderRepository : GenericRepository<Order>, IOrderRepository
     {
-        public OrderRepository(SqlConnection sqlConnection, IDbTransaction dbTransaction) : base(sqlConnection, dbTransaction, "Orders")
+        public OrderRepository(IDapperContext context) : base(context, "Orders")
         {
         }
 
         public async Task<IEnumerable<Order>> GetByCustomerIdAsync(int customerId)
         {
-            string query = "SELECT * FROM Orders WHERE CustomerId = @customerId";
+            string query = "SELECT Id, CustomerId, RestaurantId, OrderDate, Updated_at AS UpdatedAt, Status, TotalAmount " +
+                           "FROM Orders WHERE CustomerId = @customerId";
 
-            using (SqlCommand cmd = new SqlCommand(query, _dbConnection, (SqlTransaction)_dbTransaction))
-            {
-                cmd.Parameters.AddWithValue("@customerId", customerId);
-                using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
-                {
-                    var orders = new List<Order>();
-                    while (await reader.ReadAsync())
-                    {
-                        var order = new Order
-                        {
-                            Id = reader.GetInt32(reader.GetOrdinal("Id")),
-                            CustomerId = reader.GetInt32(reader.GetOrdinal("CustomerId")),
-                            RestaurantId = reader.GetInt32(reader.GetOrdinal("RestaurantId")),
-                            OrderDate = reader.GetDateTime(reader.GetOrdinal("OrderDate")),
-                            UpdatedAt = reader.GetDateTime(reader.GetOrdinal("Updated_at")),
-                            Status = reader.GetString(reader.GetOrdinal("Status")),
-                            TotalAmount = reader.GetDecimal(reader.GetOrdinal("TotalAmount"))
-                        };
-
-                        orders.Add(order);
-                    }
-                    return orders;
-                }
-
-            }
+            return await _context.Connection.QueryAsync<Order>(query, 
+                new { customerId }, 
+                transaction: _context.Transaction);
         }
 
         public async Task<decimal> GetIncomeByDate(DateTime fromDate, DateTime toDate)
         {
             var query = "SELECT SUM(TotalAmount) FROM Orders WHERE OrderDate BETWEEN @fromDate AND @toDate AND Status = 'Success'";
-            var result = await _dbConnection.ExecuteScalarAsync <decimal ?> (query, new { fromDate, toDate }, _dbTransaction);
+            
+            var result = await _context.Connection.ExecuteScalarAsync<decimal?>(query, 
+                new { fromDate, toDate }, 
+                transaction: _context.Transaction);
+                
             return result ?? 0m;
-
         }
 
-        
         public async Task<Order?> GetWithItemsByIdAsync(int orderId)
         {
+            string query = @"
+                SELECT 
+                    o.Id, o.CustomerId, o.RestaurantId, o.OrderDate, o.Status, o.TotalAmount,
+                    d.Id, d.OrderId, d.DishId, d.Quantity, d.PriceAtTimeOfOrder
+                FROM Orders o
+                LEFT JOIN OrderDishes d ON o.Id = d.OrderId
+                WHERE o.Id = @orderId";
 
-            string query = "SELECT " +
-                "o.Id AS OrderId, " +
-                "o.CustomerId, " +
-                "o.RestaurantId, " +
-                "o.OrderDate, " +
-                "o.Status, " +
-                "o.TotalAmount, " +
-                "d.Id, " +
-                "d.DishId, " +
-                "d.Quantity, " +
-                "d.PriceAtTimeOfOrder " +
-                "FROM Orders o " +
-                "LEFT JOIN OrderDishes d On o.Id = d.OrderId " +
-                "WHERE o.Id = @orderId;";
+            var orderDictionary = new Dictionary<int, Order>();
 
-            Order? order = null;
-
-            using (SqlCommand cmd = new SqlCommand(query, _dbConnection, (SqlTransaction)_dbTransaction))
-            {
-                cmd.Parameters.AddWithValue("@OrderId", orderId);
-                using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+            var list = await _context.Connection.QueryAsync<Order, OrderDish, Order>(
+                query,
+                (order, dish) =>
                 {
-                    while (await reader.ReadAsync())
+                    if (!orderDictionary.TryGetValue(order.Id, out var orderEntry))
                     {
-                        if (order  == null)
-                        {
-                            order = new Order()
-                            {
-                                Id = reader.GetInt32(reader.GetOrdinal("OrderId")),
-                                CustomerId = reader.GetInt32(reader.GetOrdinal("CustomerId")),
-                                RestaurantId = reader.GetInt32(reader.GetOrdinal("RestaurantId")),
-                                OrderDate = reader.GetDateTime(reader.GetOrdinal("OrderDate")),
-                                Status = reader.GetString(reader.GetOrdinal("Status")),
-                                TotalAmount = reader.GetDecimal(reader.GetOrdinal("TotalAmount")),
-                                Dishes = new List<OrderDish>() 
-
-                            };
-                        }
-                        if (!reader.IsDBNull(reader.GetOrdinal("Id")))
-                        order.Dishes.Add(new OrderDish
-                        {
-                            Id = reader.GetInt32(reader.GetOrdinal("Id")),
-                            OrderId = reader.GetInt32(reader.GetOrdinal("OrderId")),
-                            DishId = reader.GetInt32(reader.GetOrdinal("DishId")),
-                            Quantity = reader.GetInt32(reader.GetOrdinal("Quantity")),
-                            PriceAtTimeOfOrder = reader.GetDecimal(reader.GetOrdinal("PriceAtTimeOfOrder"))
-                        });
+                        orderEntry = order;
+                        orderEntry.Dishes = new List<OrderDish>();
+                        orderDictionary.Add(orderEntry.Id, orderEntry);
                     }
-                }
-            }
-            return order;
-        }
-        
-        
-    }
 
+                    if (dish != null)
+                    {
+                        orderEntry.Dishes.Add(dish);
+                    }
+
+                    return orderEntry;
+                },
+                new { orderId },
+                transaction: _context.Transaction,
+                splitOn: "Id" 
+            );
+
+            return list.FirstOrDefault();
+        }
+    }
 }

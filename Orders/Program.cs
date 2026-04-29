@@ -1,10 +1,12 @@
 using System;
 using System.Data;
 using AutoMapper;
-using Dal.Repository;
-using Dal.Repository.Interfaces;
-using Dal.UoW;
-using Dal.UoW.Interfaces;
+using Orders.Dal.Repository;
+using Orders.Dal.Repository.Interfaces;
+using Orders.Dal.Context.Interfaces;
+using Orders.Dal.Context;
+using Orders.Dal.UoW;
+using Orders.Dal.UoW.Interfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Data.SqlClient;
 using Orders.Bll.Mapper.Profiles;
@@ -20,6 +22,8 @@ builder.AddServiceDefaults();
 
 
 // Add services to the container.
+builder.Services.AddScoped<IDapperContext>(s => new DapperContext(builder.Configuration.GetConnectionString("ordersDb")));
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<IOrderDishRepository, OrderDishRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();

@@ -1,3 +1,8 @@
+using System.Data;
+using Microsoft.Data.SqlClient;
+using Orders.Dal.Context.Interfaces;
+
+namespace Orders.Dal.Context{
 public class DapperContext : IDapperContext
     {
         private readonly string _connectionString;
@@ -39,3 +44,4 @@ public class DapperContext : IDapperContext
             _connection?.Dispose();
         }
     }
+} 

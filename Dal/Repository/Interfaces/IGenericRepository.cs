@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dal.Repository.Interfaces
+namespace Orders.Dal.Repository.Interfaces
 {
     public interface IGenericRepository<T>
     {

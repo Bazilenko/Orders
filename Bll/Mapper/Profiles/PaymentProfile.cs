@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using Dal.Entities;
+using Orders.Dal.Entities;
 using Orders.Bll.DTOs.Payment;
 
 namespace Orders.Bll.Mapper.Profiles

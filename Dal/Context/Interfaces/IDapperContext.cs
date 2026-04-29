@@ -1,3 +1,6 @@
+using System.Data;
+
+namespace Orders.Dal.Context.Interfaces{
 public interface IDapperContext : IDisposable
     {
         IDbConnection Connection { get; }
@@ -6,3 +9,4 @@ public interface IDapperContext : IDisposable
         void Commit();
         void Rollback();
     }
+}

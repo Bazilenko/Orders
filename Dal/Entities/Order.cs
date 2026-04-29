@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dommel;
 
-namespace Dal.Entities
+namespace Orders.Dal.Entities
 {
     public class Order
     {

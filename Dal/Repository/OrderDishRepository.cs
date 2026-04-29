@@ -1,27 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data;
-using Dal.Entities;
-using Dal.Repository;
-using Dal.Repository.Interfaces;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Orders.Dal.Entities;
+using Orders.Dal.Repository;
+using Orders.Dal.Repository.Interfaces;
+using Orders.Dal.Context.Interfaces; 
 using Dommel;
-using Microsoft.Data.SqlClient;
 
 namespace Orders.Dal.Repository
 {
-   
     public class OrderDishRepository : GenericRepository<OrderDish>, IOrderDishRepository
     {
-        public OrderDishRepository(SqlConnection sqlConnection, IDbTransaction dbTransaction) : base(sqlConnection, dbTransaction, "OrderDishes")
+        public OrderDishRepository(IDapperContext context) : base(context, "OrderDishes")
         {
         }
 
         public async Task<IEnumerable<OrderDish?>> GetByOrderIdAsync(int orderId)
         {
-            var dishes = await _dbConnection.SelectAsync<OrderDish>(od => od.OrderId == orderId, transaction: _dbTransaction);
+            var dishes = await _context.Connection.SelectAsync<OrderDish>(
+                od => od.OrderId == orderId, 
+                transaction: _context.Transaction
+            );
+
             return dishes;
-            
         }
     }
 }

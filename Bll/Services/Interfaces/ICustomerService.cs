@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using Dal.UoW.Interfaces;
+using Orders.Dal.UoW.Interfaces;
 using Orders.Dal.DTOs.Customer;
 
 namespace Orders.Bll.Services.Interfaces
