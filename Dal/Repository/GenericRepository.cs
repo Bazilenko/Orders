@@ -12,125 +12,97 @@ using Microsoft.Data.SqlClient;
 
 namespace Dal.Repository
 { 
-    public class GenericRepository<T> : IGenericRepository<T>
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        protected SqlConnection _dbConnection;
+        protected readonly IDapperContext _context;
         private readonly string _tableName;
-        protected IDbTransaction _dbTransaction;
 
-        public GenericRepository(SqlConnection sqlConnection, IDbTransaction dbTransaction, string tableName)
+        public GenericRepository(IDapperContext context, string tableName)
         {
-            _dbConnection = sqlConnection;
-            _dbTransaction = dbTransaction;
+            _context = context;
             _tableName = tableName;
         }
+
         public async Task<int> AddAsync(T entity)
         {
             var insertQuery = GenerateInsertQuery();
-            var newId = await _dbConnection.ExecuteScalarAsync<int>(insertQuery,
+            return await _context.Connection.ExecuteScalarAsync<int>(insertQuery,
                 param: entity,
-                transaction: _dbTransaction);
-            return newId;
+                transaction: _context.Transaction);
         }
 
         public async Task<int> AddRangeAsync(IEnumerable<T> items)
         {
-            var inserted = 0;
             var query = GenerateInsertQuery();
-            inserted += await _dbConnection.ExecuteAsync(query,
-                param: items);
-            return inserted;
+            return await _context.Connection.ExecuteAsync(query,
+                param: items,
+                transaction: _context.Transaction);
         }
 
         public async Task DeleteAsync(int id)
         {
-            await _dbConnection.ExecuteAsync($"DELETE FROM {_tableName} WHERE Id = {id}",
+            var sql = $"DELETE FROM {_tableName} WHERE Id = @Id";
+            await _context.Connection.ExecuteAsync(sql,
                 param: new { Id = id },
-                transaction: _dbTransaction);
+                transaction: _context.Transaction);
         }
 
         public async Task<IEnumerable<T>> GetAllAsync()
         {
             var sql = $"SELECT * FROM {_tableName}";
-            return await _dbConnection.QueryAsync<T>(sql, transaction: _dbTransaction); ;
+            return await _context.Connection.QueryAsync<T>(sql, 
+                transaction: _context.Transaction);
         }
 
         public async Task<T> GetAsync(int id)
         {
-            var sql = $"SELECT * FROM {_tableName} WHERE Id = @id";
-            var result = await _dbConnection.QuerySingleOrDefaultAsync<T>($"SELECT * FROM {_tableName} WHERE Id = @id",
+            var sql = $"SELECT * FROM {_tableName} WHERE Id = @Id";
+            var result = await _context.Connection.QuerySingleOrDefaultAsync<T>(sql,
                 param: new { Id = id },
-                transaction: _dbTransaction);
+                transaction: _context.Transaction);
+
             if (result == null)
                 throw new KeyNotFoundException($"{_tableName} with id [{id}] could not be found.");
+            
             return result;
         }
 
-        public async Task ReplaceAsync(T t)
+        public async Task ReplaceAsync(T entity)
         {
             var updateQuery = GenerateUpdateQuery();
-            await _dbConnection.ExecuteAsync(updateQuery,
-                param: t,
-                transaction: _dbTransaction);
+            await _context.Connection.ExecuteAsync(updateQuery,
+                param: entity,
+                transaction: _context.Transaction);
         }
+
+
         private IEnumerable<PropertyInfo> GetProperties => typeof(T).GetProperties();
+
         private static List<string> GenerateListOfProperties(IEnumerable<PropertyInfo> listOfProperties)
         {
             return (from prop in listOfProperties
                     let attributes = prop.GetCustomAttributes(typeof(DescriptionAttribute), false)
-                    where
-                      
-                        (attributes.Length <= 0 || (attributes[0] as DescriptionAttribute)?.Description != "ignore")
-
-                      
-                        && prop.Name != "Id"
-
-                      
-                        && (prop.PropertyType == typeof(string) || !typeof(System.Collections.IEnumerable).IsAssignableFrom(prop.PropertyType))
-
+                    where (attributes.Length <= 0 || (attributes[0] as DescriptionAttribute)?.Description != "ignore")
+                          && prop.Name != "Id"
+                          && (prop.PropertyType == typeof(string) || !typeof(System.Collections.IEnumerable).IsAssignableFrom(prop.PropertyType))
                     select prop.Name).ToList();
         }
 
-        //  INSERT
         private string GenerateInsertQuery()
         {
-            var insertQuery = new StringBuilder($"INSERT INTO {_tableName} ");
-            insertQuery.Append("(");
             var properties = GenerateListOfProperties(GetProperties);
-            properties.Remove("Id");
-            properties.ForEach(prop => { insertQuery.Append($"[{prop}],"); });
-            insertQuery
-                .Remove(insertQuery.Length - 1, 1)
-                .Append(") VALUES (");
+            var columns = string.Join(", ", properties.Select(p => $"[{p}]"));
+            var values = string.Join(", ", properties.Select(p => $"@{p}"));
 
-            properties.ForEach(prop => { insertQuery.Append($"@{prop},"); });
-            insertQuery
-                .Remove(insertQuery.Length - 1, 1)
-                .Append(")");
-            insertQuery.Append("; SELECT SCOPE_IDENTITY()");
-            return insertQuery.ToString();
+            return $"INSERT INTO {_tableName} ({columns}) VALUES ({values}); SELECT SCOPE_IDENTITY();";
         }
-        //  UPDATE
+
         private string GenerateUpdateQuery()
         {
-            var updateQuery = new StringBuilder($"UPDATE {_tableName} SET ");
-
-            
             var properties = GenerateListOfProperties(GetProperties);
+            var setClause = string.Join(", ", properties.Select(p => $"{p}=@{p}"));
 
-            properties.ForEach(property =>
-            {
-                
-                updateQuery.Append($"{property}=@{property},");
-            });
-
-            
-            updateQuery.Remove(updateQuery.Length - 1, 1);
-
-            
-            updateQuery.Append(" WHERE Id=@Id");
-
-            return updateQuery.ToString();
+            return $"UPDATE {_tableName} SET {setClause} WHERE Id=@Id";
         }
     }
 }
