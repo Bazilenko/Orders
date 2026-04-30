@@ -16,6 +16,7 @@ namespace Catalog.Bll.Services.Interfaces
         Task<RestaurantDto?> GetRestaurantByIdAsync(int id);
         Task<RestaurantDto> AddRestaurant(RestaurantCreateDto dto);
         Task UpdateRestaurant(RestaurantUpdateDto dto);
+        Task DeactivateRestaurant(int id);
         Task<IEnumerable<RestaurantDto>> GetRestaurantByRating(int rating);
         Task<PagedResult<RestaurantDto>> GetPaginatedAsync(PagedRequest request);
 

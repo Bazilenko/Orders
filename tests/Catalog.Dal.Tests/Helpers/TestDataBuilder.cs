@@ -61,6 +61,31 @@ public static class TestDataBuilder
             Type = type,
             Value = value
         };
+    
+    public static Category CreateCategory(int id = 0, string name = "General") =>
+        new Category 
+        { 
+            Id = id, 
+            Name = name 
+        };
+
+    public static Dish CreateDish(
+        int id = 0, 
+        string name = "Pizza", 
+        decimal price = 250.0m, 
+        int categoryId = 0, 
+        int restaurantId = 0) =>
+        new Dish
+        {
+            Id = id,
+            Name = name,
+            Description = "Very tasty",
+            Price = price,
+            ImageUrl = "pizza.png",
+            CategoryId = categoryId,
+            RestaurantId = restaurantId,
+            DishOptions = new List<DishOption?>()
+        };
 
     public static List<Restaurant> CreateRestaurants(int count = 3) =>
         Enumerable.Range(1, count)

@@ -25,12 +25,26 @@ namespace Catalog.Bll.Services
         }
 
         public async Task<RestaurantDto> AddRestaurant(RestaurantCreateDto dto)
+    {
+        var city = dto.Addresses.FirstOrDefault()?.City;
+        var spec = new RestaurantUniqueCheckSpecification(dto.Name, city);
+        var existing = await _unitOfWork.Restaurants.ListAsync(spec);
+
+        if (existing.Any())
         {
-            var restaurant = _mapper.Map<Restaurant>(dto);
-            await _unitOfWork.Restaurants.AddAsync(restaurant);
-            await _unitOfWork.SaveChangesAsync();
-            return _mapper.Map<RestaurantDto>(restaurant);
+            throw new InvalidOperationException($"Ресторан '{dto.Name}' у місті {city} вже зареєстровано.");
         }
+
+        var restaurant = _mapper.Map<Restaurant>(dto);
+
+        restaurant.IsActive = false; 
+        restaurant.Rating = 0;       
+
+        await _unitOfWork.Restaurants.AddAsync(restaurant);
+        await _unitOfWork.SaveChangesAsync();
+
+        return _mapper.Map<RestaurantDto>(restaurant);
+    }
 
         public async Task<IEnumerable<RestaurantDto?>> GetAllRestaurantsAsync()
         {
@@ -73,9 +87,34 @@ namespace Catalog.Bll.Services
             );
         }
 
-        public Task UpdateRestaurant(RestaurantUpdateDto dto)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task UpdateRestaurant(RestaurantUpdateDto dto)
+    {
+        var restaurant = await _unitOfWork.Restaurants.GetByIdAsync(dto.Id);
+        if (restaurant == null) throw new KeyNotFoundException("Ресторан не знайдено.");
+
+        var currentRating = restaurant.Rating;
+
+        // Мапимо дані з DTO в існуючу сутність
+        _mapper.Map(dto, restaurant);
+
+        // 3. ЗАХИСТ РЕЙТИНГУ ПРИ ОНОВЛЕННІ
+        // Навіть якщо в DTO прийшло нове значення рейтингу, ми його ігноруємо
+        restaurant.Rating = currentRating;
+
+        await _unitOfWork.Restaurants.UpdateAsync(restaurant);
+        await _unitOfWork.SaveChangesAsync();
+    }
+
+        public async Task DeactivateRestaurant(int id)
+    {
+        var restaurant = await _unitOfWork.Restaurants.GetByIdAsync(id);
+        if (restaurant == null) throw new KeyNotFoundException("Ресторан не знайдено.");
+
+        // 2. SOFT DELETE
+        restaurant.IsActive = false;
+
+        await _unitOfWork.Restaurants.UpdateAsync(restaurant);
+        await _unitOfWork.SaveChangesAsync();
+    }
     }
 }
