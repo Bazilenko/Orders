@@ -87,6 +87,25 @@ public static class TestDataBuilder
             DishOptions = new List<DishOption?>()
         };
 
+        
+
+ public static DishOption CreateDishOption(int id = 0, string name = "Додатковий сир", decimal price = 30.0m, int dishId = 0) =>
+
+    new DishOption
+
+    {
+
+        Id = id,
+
+        Name = name,
+
+        ModifierPrice = price,
+
+        DishId = dishId
+
+    };
+
+
     
 
     public static List<Restaurant> CreateRestaurants(int count = 3) =>
