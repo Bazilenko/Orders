@@ -9,5 +9,8 @@ namespace Catalog.Dal.Repositories.Interfaces
 {
     public interface IAddressRepository : IGenericRepository<Address>
     {
+        Task<IEnumerable<Address>> GetAddressesByRestaurantIdAsync(int restaurantId);
+        Task<IEnumerable<Address>> GetAddressesByCityAsync(string city);
+
     }
 }
